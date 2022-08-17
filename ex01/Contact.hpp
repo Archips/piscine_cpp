@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:31:05 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 14:11:50 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:36:44 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ class Contact {
 
 		Contact(void);
 		~Contact(void);
+
+		int		getNb(void) const;
+		void	setNb(int nb);
 
 	private:
 

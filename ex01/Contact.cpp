@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:35:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 13:38:33 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:40:12 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,17 @@ Contact::~Contact(void) {
 
 	std::cout << "Destructor called" << std::endl;
 	return ;
+}
+
+int	Contact::getNb(void) {
+
+	return this->_nbContact;
+
+}
+
+void	Contact::setNb(void) {
+
+	this->_nbContact ++;
+	return ;
+
 }
