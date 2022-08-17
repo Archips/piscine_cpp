@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:42:05 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 13:55:55 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:08:19 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class PhoneBook {
 		Contact book[8];
 		PhoneBook(void);
 		~PhoneBook(void);
-		
 };
 
 #endif

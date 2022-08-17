@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:31:05 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 13:38:11 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:11:50 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@ class Contact {
 	public:
 
 		char	*name;
-		char	*last_name;
+		char	*lastName;
 		char	*nickname;
-		char	*phone_number;
-		char	*darkest_secret;
+		char	*phoneNumber;
+		char	*darkestSecret;
 
 		Contact(void);
 		~Contact(void);
 
+	private:
+
+		int		_nbContact;
 };
 
 #endif
