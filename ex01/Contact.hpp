@@ -10,28 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+# include <string>
 
 class Contact {
 
 	public:
 
-		char	*name;
-		char	*lastName;
-		char	*nickname;
-		char	*phoneNumber;
-		char	*darkestSecret;
-
 		Contact(void);
 		~Contact(void);
 
-		int		getNb(void) const;
-		void	setNb(int nb);
+		std::string getName(void) const;
+        std::string getLastName(void) const;
+        std::string getNickname(void) const;
+        std::string getPhoneNumber(void) const;
+        std::string getSecret(void) const;
+        void        setName(std::string name);
+        void        setLastName(std::string lastName);
+        void        setNickname(std::string nickname);
+        void        setPhoneNumber(std::string phoneNumber);
+        void        setSecret(std::string secret);
 
 	private:
 
-		int		_nbContact;
+        std::string _name;
+        std::string _lastName;
+        std::string _nickname;
+        std::string _phoneNumber;
+        std::string	_darkestSecret;
 };
 
 #endif

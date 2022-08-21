@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cctype>
-#include <cstring>
 
 int main(int ac, char **av)
 {
@@ -31,7 +29,7 @@ int main(int ac, char **av)
 				av[i][j] = std::toupper(av[i][j]);
 			std::cout << av[i];
 		}
-		std::cout << "\n";
+		std::cout << std::endl;
 	}
 	return (0);
 }

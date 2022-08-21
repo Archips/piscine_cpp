@@ -10,18 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-
-#include "Contact.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+# include "Contact.hpp"
 
 class PhoneBook {
 
 	public:
-		
-		Contact book[8];
+
 		PhoneBook(void);
 		~PhoneBook(void);
+
+        void    fillPhoneBook(std::string name, std::string lastName,
+                              std::string nickName, std::string phoneNumber,
+                              std::string secret, int index);
+
+        void    displayPhoneBook(int index, std::string name,
+                                 std::string lastName, std::string nickName) const;
+
+        void    displayContact(int index) const ;
+        int     getNbContact(void) const ;
+
+    private:
+
+        Contact _book[8];
+        int     _nbContact;
 };
 
 #endif

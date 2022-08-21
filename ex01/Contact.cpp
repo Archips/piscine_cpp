@@ -25,15 +25,68 @@ Contact::~Contact(void) {
 	return ;
 }
 
-int	Contact::getNb(void) {
+void	Contact::getName(void) const {
 
-	return this->_nbContact;
+    std::cout << this->_name;
+	return;
+
+}
+
+void	Contact::getLastName(void) const {
+
+    std::cout << this->_lastName;
+    return;
 
 }
 
-void	Contact::setNb(void) {
+void	Contact::getNickname(void) const {
 
-	this->_nbContact ++;
-	return ;
+    std::cout << this->_nickname;
+    return;
 
 }
+
+void	Contact::getPhoneNumber(void) const {
+
+    std::cout << this->_phoneNumber;
+    return;
+
+}
+
+void	Contact::getSecret(void) const {
+
+    std::cout << this->_darkestSecret;
+    return;
+
+}
+
+void Contact::setName(std::string name) {
+
+    this->_name = name;
+    return ;
+}
+
+void Contact::setLastName(std::string lastName) {
+
+    this->_lastName = lastName;
+    return ;
+}
+
+void Contact::setNickname(std::string nickname) {
+
+    this->_nickname = nickname;
+    return ;
+}
+
+void Contact::setPhoneNumber(std::string phoneNumber) {
+
+    this->_phoneNumber = phoneNumber;
+    return ;
+}
+
+void Contact::setSecret(std::string secret) {
+
+    this->_darkestSecret = secret;
+    return ;
+}
+
