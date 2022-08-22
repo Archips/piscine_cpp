@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:38:45 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/22 15:31:08 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/22 16:25:31 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void    listContact(PhoneBook *book) {
         for (int i = 0; i < book->getNbContact() % 8; i ++)
         {
 			std::cout << "----- In for loop : [" << i << "]" << std::endl;
-			book->displayContact(i);
+			book->displayPhoneBook(i);
 		}
     }
 	else
@@ -130,6 +130,7 @@ int	main(void)
     PhoneBook book;
     std::string input;
 	int	end;
+	int index;
 
 	end = 0;
     while (!end) {
@@ -138,7 +139,7 @@ int	main(void)
 		std::getline(std::cin,input);
 		if (std::cin.eof())
 			return (1);
-        if (input.compare("ADD") == 0){
+        if (input.compare("ADD") == 0) {
             
 			if (addContact(&book) == 1)
 				return (EXIT_FAILURE);
@@ -146,6 +147,14 @@ int	main(void)
         else if (input.compare("SEARCH") == 0) {
             
 			listContact(&book);
+			std::cout << "Enter index's contact : " << std::endl;
+			std::cin >> index;
+			if (index < 1 || index > 8) {
+
+				std::cout << "Invalid index" << std::endl;
+				continue ;
+			}
+			book.displayContact(index - 1);
         }
 		else if (input.compare("EXIT") == 0) {
 		

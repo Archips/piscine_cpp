@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/22 13:53:52 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/22 16:23:41 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,14 @@ void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
 	return ;
 }
 
-void    PhoneBook::displayPhoneBook(int index, std::string name, std::string lastname,
-                         std::string nickName) const {
+void    PhoneBook::displayPhoneBook(int index) const {
 
-    std::cout << index << "|" << std::setw(10);
-    std::cout << std::setw(10) << name << "|";
-    std::cout << std::setw(10) << lastname;
+    std::cout << index + 1 << "|" << std::setw(10);
+    std::cout << std::setw(10) << this->_book[index].getName() << "|";
+    std::cout << std::setw(10) << this->_book[index].getLastName();
     std::cout << std::setw(10) << "|";
-    std::cout << std::setw(10) << nickName;
-    std::cout << std::setw(10) << "|";
+    std::cout << std::setw(10) << this->_book[index].getNickname();
+    std::cout << std::setw(10) << "|" << std::endl ;
     return ;
 }
 
