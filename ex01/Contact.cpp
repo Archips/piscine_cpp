@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:35:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 14:40:12 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/22 13:06:30 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,42 @@
 
 Contact::Contact(void) {
 
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Contact constructor called" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void) {
 
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Contact destructor called" << std::endl;
 	return ;
 }
 
 std::string	Contact::getName(void) const {
 
-    // std::cout << this->_name;
 	return (this->_name);
 
 }
 
 std::string	Contact::getLastName(void) const {
 
-
-    // std::cout << this->_lastName;
     return (this->_lastName);
 
 }
 
 std::string	Contact::getNickname(void) const {
 
-    // std::cout << this->_nickname;
     return (this->_nickname);
 
 }
 
 std::string	Contact::getPhoneNumber(void) const {
 
-    // std::cout << this->_phoneNumber;
     return (this->_phoneNumber);
 
 }
 
 std::string	Contact::getSecret(void) const {
 
-    // std::cout << this->_darkestSecret;
     return (this->_darkestSecret);
 
 }

@@ -6,37 +6,39 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 13:41:54 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/22 13:53:52 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
-#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
 
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Phonebook constructor called" << std::endl;
     this->_nbContact = 0;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void) {
 
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Phonebook destructor called" << std::endl;
 	return ;
 }
 
 void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
                       std::string nickName, std::string phoneNumber,
                       std::string secret, int index) {
-    this->_book[index].setName(name);
+    
+	this->_book[index].setName(name);
     this->_book[index].setLastName(lastName);
     this->_book[index].setNickname(nickName);
     this->_book[index].setPhoneNumber(phoneNumber);
     this->_book[index].setSecret(secret);
     this->_nbContact ++;
-    return ;
+
+	return ;
 }
 
 void    PhoneBook::displayPhoneBook(int index, std::string name, std::string lastname,
