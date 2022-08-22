@@ -27,14 +27,19 @@ void    addContact(PhoneBook book) {
 
     std::cout << "Enter a name :" << std::endl;
     std::cin >> name;
+    std::cout << "Name : " << name << std::endl;
     std::cout << "Enter a last name :" << std::endl;
     std::cin >> lastName;
+    std::cout << "Last name : " << lastName << std::endl;
     std::cout << "Enter a nickname :" << std::endl;
     std::cin >> nickName;
+    std::cout << "Nickname : " << nickName << std::endl;
     std::cout << "Enter a phone number :" << std::endl;
     std::cin >> phoneNumber;
+    std::cout << "Phone number : " << phoneNumber << std::endl;
     std::cout << "Enter their darkest secret :" << std::endl;
     std::cin >> secret;
+    std::cout << "Darkest Secret : " << secret << std::endl;
 
     book.fillPhoneBook(name, lastName, nickName, phoneNumber, secret, index);
     return ;
