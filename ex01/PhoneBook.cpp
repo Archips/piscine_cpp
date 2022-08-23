@@ -43,17 +43,15 @@ void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
 
 void    PhoneBook::displayPhoneBook(int index) const {
 
-    std::cout << index + 1 << "|" << std::setw(10);
-    std::cout << std::setw(10) << this->_book[index].getName() << "|";
-    std::cout << std::setw(10) << this->_book[index].getLastName();
-    std::cout << std::setw(10) << "|";
-    std::cout << std::setw(10) << this->_book[index].getNickname();
-    std::cout << std::setw(10) << "|" << std::endl ;
+    std::cout << index + 1 << std::setw(10) << "|";
+    std::cout << this->_book[index].getName() << std::setw(10) << "|";
+    std::cout << this->_book[index].getLastName() << std::setw(10) << "|";
+    std::cout << this->_book[index].getNickname() << std::endl;
     return ;
 }
 
 void PhoneBook::displayContact(int index) const {
-    std::cout << "DEBUG" << std::endl;
+
     std::cout << this->_book[index].getName() << std::endl;
     std::cout << this->_book[index].getLastName() << std::endl;
     std::cout << this->_book[index].getNickname() << std::endl;

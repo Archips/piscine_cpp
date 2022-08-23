@@ -14,75 +14,81 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <stdlib.h>
+#include <limits>
 
 int addName(std::string *name)
 {
-	while (1)
+	while (name->empty())
 	{
+        if (name->empty())
+            std::cout << "Enter their name : " << std::endl;
 		std::getline(std::cin, *name);
 		if (std::cin.eof())
 			return (EXIT_FAILURE);
-		if (name->length() != 0)
-			return (EXIT_SUCCESS);
-		else
-			std::cout << "Enter their name : " << std::endl;
+		if (!name->empty())
+			break ;
 	}
+    return (EXIT_SUCCESS);
 }
 
 int	addLastName(std::string *lastName)
 {	
 	while (1)
 	{
+        if (lastName->empty())
+            std::cout << "Enter their lastname : " << std::endl;
 		std::getline(std::cin, *lastName);
 		if (std::cin.eof())
 			return (EXIT_FAILURE);
 		if (lastName->length() != 0)
-			return (EXIT_SUCCESS);
-		else
-			std::cout << "Enter their lastname : " << std::endl;
+            break ;
 	}
+    return (EXIT_SUCCESS);
 }
 
 int	addNickName(std::string *nickName)
 {	
 	while (1)
 	{
+        if (nickName->empty())
+            std::cout << "Enter their nickname : " << std::endl;
 		std::getline(std::cin, *nickName);
 		if (std::cin.eof())
 			return (EXIT_FAILURE);
 		if (nickName->length() != 0)
-			return (EXIT_SUCCESS);
-		else
-			std::cout << "Enter their nickname : " << std::endl;
+            break ;
 	}
+    return (EXIT_SUCCESS);
 }
 
 int	addPhoneNumber(std::string *phoneNumber)
 {	
 	while (1)
 	{
+        if (phoneNumber->empty())
+            std::cout << "Enter their phone number : " << std::endl;
 		std::getline(std::cin, *phoneNumber);
 		if (std::cin.eof())
 			return (EXIT_FAILURE);
 		if (phoneNumber->length() != 0)
-			return (EXIT_SUCCESS);
-		else
-			std::cout << "Enter their phone number : " << std::endl;
+            break ;
 	}
+    return (EXIT_SUCCESS);
 }
 
 int	addSecret(std::string *secret)
 {	
 	while (1)
 	{
+        if (secret->empty())
+            std::cout << "Enter their darkest secret : " << std::endl;
 		std::getline(std::cin, *secret);
 		if (std::cin.eof())
 			return (EXIT_FAILURE);
 		if (secret->length() != 0)
-			return (EXIT_SUCCESS);
-		else
-			std::cout << "Enter their darkest secret : " << std::endl;
+			break ;
 	}
+    return (EXIT_SUCCESS);
 }
 
 int    addContact(PhoneBook *book) {
@@ -96,8 +102,8 @@ int    addContact(PhoneBook *book) {
 
     index = book->getNbContact() % 8;
 
-	if (addName(&name)== 1)
-		return (EXIT_FAILURE);
+    if (addName(&name) == 1)
+        return (EXIT_FAILURE);
 	if (addLastName(&lastName) == 1)
 		return (EXIT_FAILURE);
 	if (addNickName(&nickName) == 1)
@@ -114,13 +120,13 @@ int    addContact(PhoneBook *book) {
 void    listContact(PhoneBook *book) {
     
 	if (book->getNbContact() != 0) {
-        for (int i = 0; i < book->getNbContact() % 8; i ++)
-        {
-			std::cout << "----- In for loop : [" << i << "]" << std::endl;
-			book->displayPhoneBook(i);
-		}
+        std::cout << "---------- ---------- ---------- ----------" << std::endl;
+        std::cout << "INDEX     |NAME      |LASTNAME  |NICKNAME  " << std::endl;
+        std::cout << "---------- ---------- ---------- ----------" << std::endl;
+        for (int i = 0; i < book->getNbContact() % 8; i++)
+            book->displayPhoneBook(i);
     }
-	else
+    else
 		std::cout << "The phone book is empty" << std::endl;
     return ;
 }
