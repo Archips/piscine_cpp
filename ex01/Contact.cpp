@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:35:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/22 13:06:30 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/24 14:08:53 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 Contact::Contact(void) {
 
-	std::cout << "Contact constructor called" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void) {
 
-	std::cout << "Contact destructor called" << std::endl;
 	return ;
 }
 

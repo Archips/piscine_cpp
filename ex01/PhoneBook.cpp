@@ -6,24 +6,23 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/22 16:23:41 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:53:31 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 PhoneBook::PhoneBook(void) {
 
-	std::cout << "Phonebook constructor called" << std::endl;
     this->_nbContact = 0;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void) {
 
-	std::cout << "Phonebook destructor called" << std::endl;
 	return ;
 }
 
@@ -43,20 +42,31 @@ void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
 
 void    PhoneBook::displayPhoneBook(int index) const {
 
-    std::cout << index + 1 << std::setw(10) << "|";
-    std::cout << this->_book[index].getName() << std::setw(10) << "|";
-    std::cout << this->_book[index].getLastName() << std::setw(10) << "|";
-    std::cout << this->_book[index].getNickname() << std::endl;
+    std::cout << std::setw(10) << index + 1 << "|";
+	if (this->_book[index].getName().size() > 10)
+		std::cout << std::setw(9) << this->_book[index].getName().substr(0, 9) << "." << "|";
+	else
+    	std::cout << std::setw(10) << this->_book[index].getName() << "|";
+	if (this->_book[index].getLastName().size() > 10)
+		std::cout << std::setw(9) << this->_book[index].getLastName().substr(0, 9) << "." << "|";
+	else
+		std::cout << std::setw(10) << this->_book[index].getLastName() << "|";
+	if (this->_book[index].getNickname().size() > 10)
+		std::cout << std::setw(9) << this->_book[index].getNickname().substr(0, 9) << "." << std::endl;
+	else
+    	std::cout << std::setw(10) << this->_book[index].getNickname() << std::endl;
     return ;
 }
 
 void PhoneBook::displayContact(int index) const {
 
+	std::cout << std::endl;
     std::cout << this->_book[index].getName() << std::endl;
     std::cout << this->_book[index].getLastName() << std::endl;
     std::cout << this->_book[index].getNickname() << std::endl;
     std::cout << this->_book[index].getPhoneNumber() << std::endl;
     std::cout << this->_book[index].getSecret() << std::endl;
+	std::cout << std::endl;
     return ;
 }
 

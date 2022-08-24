@@ -6,19 +6,20 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:38:45 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/22 16:25:31 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:54:49 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <sstream>
 #include <stdlib.h>
 #include <limits>
 
 int addName(std::string *name)
 {
-	while (name->empty())
+	while (1)
 	{
         if (name->empty())
             std::cout << "Enter their name : " << std::endl;
@@ -61,16 +62,35 @@ int	addNickName(std::string *nickName)
     return (EXIT_SUCCESS);
 }
 
+int checkNb(std::string number)
+{
+	for (long unsigned int i = 0; i < number.size(); i ++) {
+
+		if (isdigit(number[i]) == 0) {
+			return (0);
+		}
+	}
+	return (1);
+}
+
 int	addPhoneNumber(std::string *phoneNumber)
 {	
 	while (1)
 	{
-        if (phoneNumber->empty())
+		if (phoneNumber->empty())
+		{
+			std::cout << "Enter their phone number : " << std::endl;
+			std::getline(std::cin, *phoneNumber);
+		}
+		if (!checkNb(*phoneNumber))
+		{
+			std::cout << "Phone number should only contains digits" << std::endl;
             std::cout << "Enter their phone number : " << std::endl;
-		std::getline(std::cin, *phoneNumber);
+			std::getline(std::cin, *phoneNumber);
+		}
 		if (std::cin.eof())
 			return (EXIT_FAILURE);
-		if (phoneNumber->length() != 0)
+		if (phoneNumber->length() != 0 && checkNb(*phoneNumber))
             break ;
 	}
     return (EXIT_SUCCESS);
@@ -102,30 +122,45 @@ int    addContact(PhoneBook *book) {
 
     index = book->getNbContact() % 8;
 
-    if (addName(&name) == 1)
+    if (addName(&name) == 1) {
         return (EXIT_FAILURE);
-	if (addLastName(&lastName) == 1)
+	}
+	if (addLastName(&lastName) == 1) {
 		return (EXIT_FAILURE);
-	if (addNickName(&nickName) == 1)
+	}
+	if (addNickName(&nickName) == 1) {
 		return (EXIT_FAILURE);
-	if (addPhoneNumber(&phoneNumber) == 1)
+	}
+	if (addPhoneNumber(&phoneNumber) == 1) {
 		return (EXIT_FAILURE);
-	if (addSecret(&secret) == 1)
+	}
+	if (addSecret(&secret) == 1) {
 		return (EXIT_FAILURE);
- 
+	}
+
 	book->fillPhoneBook(name, lastName, nickName, phoneNumber, secret, index);
     return (EXIT_SUCCESS);
 }
 
 void    listContact(PhoneBook *book) {
-    
+   
+	int	index;
+
+	index = 0;
 	if (book->getNbContact() != 0) {
         std::cout << "---------- ---------- ---------- ----------" << std::endl;
         std::cout << "INDEX     |NAME      |LASTNAME  |NICKNAME  " << std::endl;
         std::cout << "---------- ---------- ---------- ----------" << std::endl;
         for (int i = 0; i < book->getNbContact() % 8; i++)
             book->displayPhoneBook(i);
-    }
+		std::cout << std::endl << "Enter index's contact : " << std::endl;
+		std::cin >> index;
+		if (index < 1 || index > 8) 
+			std::cout << "Invalid index" << std::endl;
+			else
+		book->displayContact(index - 1);
+
+	}
     else
 		std::cout << "The phone book is empty" << std::endl;
     return ;
@@ -133,19 +168,19 @@ void    listContact(PhoneBook *book) {
 
 int	main(void)
 {
-    PhoneBook book;
-    std::string input;
-	int	end;
-	int index;
-
+    PhoneBook 		book;
+    std::string 	input;
+	int				end;
+	
 	end = 0;
     while (!end) {
-
-		std::cout << "Enter an instruction: ADD | SEARCH | EXIT" << std::endl;
-		std::getline(std::cin,input);
+	
 		if (std::cin.eof())
 			return (1);
-        if (input.compare("ADD") == 0) {
+
+		std::cout << "Enter an instruction: ADD | SEARCH | EXIT" << std::endl;
+		std::getline(std::cin, input);
+		if (input.compare("ADD") == 0) {
             
 			if (addContact(&book) == 1)
 				return (EXIT_FAILURE);
@@ -153,24 +188,11 @@ int	main(void)
         else if (input.compare("SEARCH") == 0) {
             
 			listContact(&book);
-			std::cout << "Enter index's contact : " << std::endl;
-			std::cin >> index;
-			if (index < 1 || index > 8) {
-
-				std::cout << "Invalid index" << std::endl;
-				continue ;
-			}
-			book.displayContact(index - 1);
         }
 		else if (input.compare("EXIT") == 0) {
 		
 			end = 1;
 		}
-        else {
-            
-			std::cout << "Wrong instruction: Usage: ADD | SEARCH |  EXIT" << std::endl;
-        }
-
     }
 	return (0);
 }
