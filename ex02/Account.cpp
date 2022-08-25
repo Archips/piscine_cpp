@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:16:18 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/25 16:27:04 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:38:33 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,32 @@
 #include <iostream>
 #include <iomanip>
 
-static void	Account::_displayTimestamp(void) {
+void	Account::_displayTimestamp(void) {
 	std::cout << "TIME";
 }
 
-static int	Account::getNbAccounts(void) {
-	return (this->_nbAccounts);
+int	Account::getNbAccounts(void) {
+	return (_nbAccounts);
 }
 
-static int	Account::getTotalAmount(void) {
-	return (this->_totalAmount);
+int	Account::getTotalAmount(void) {
+	return (_totalAmount);
 }
 
-static int	Account::getNbDeposits(void) {
-	return (this->_nbDeposits);
+int	Account::getNbDeposits(void) {
+	return (_nbDeposits);
 }
 
-static	int	Account::getNbWithdrawals(void) {
-	return (this->_nbWithdrawals);
+int	Account::getNbWithdrawals(void) {
+	return (_nbWithdrawals);
 }
 
-static void	Account::displayAccountsInfos(void) {
+void	Account::displayAccountsInfos(void) {
 
-	std::cout << "[" << Account::_displayTimestamp() << "] ";
-	std::count << "index:-" << ";";
+	std::cout << "[";
+	Account::_displayTimestamp(); 
+	std::cout << "] ";
+	std::cout << "index:-" << ";";
 	std::cout << "amount:" << Account::getTotalAmount() << ";";
 	std::cout << "deposits:" << Account::getNbDeposits() << ";";
 	std::cout << "withdrawals:" << Account::getNbWithdrawals() << ";" << std::endl;
@@ -45,17 +47,21 @@ static void	Account::displayAccountsInfos(void) {
 
 Account::Account(int initial_deposit) {
 
-	std::cout << "[" << Account::_displayTimestamp() << "] ";
+	std::cout << "[";
+	Account::_displayTimestamp();
+	std::cout << "] ";
 	std::cout << "index:-";
 	std::cout << "amount:" << initial_deposit << ";";
 	std::cout << "created" << std::endl;
 }
 
 
-~Account::Account(void) {
-	std::cout << "[" << Account::_displayTimestamp() << "] ";
+Account::~Account(void) {
+	std::cout << "[";
+	Account::_displayTimestamp();
+	std::cout << "] ";
 	std::cout << "index:-";
-	std::cout << "amount:" << Account::getTotalAmout() << ";";
+	std::cout << "amount:" << Account::getTotalAmount() << ";";
 	std::cout << "closed" << std::endl;
 }
 
@@ -82,7 +88,9 @@ int	Account::checkAmount(void) const {
 }
 
 void	Account::displayStatus(void) const {
-	std::cout << "[" << Account::_displayTimestamp() << "] ";
+	std::cout << "[";
+	Account::_displayTimestamp();
+	std::cout << "] ";
 	std::cout << "accounts:" << Account::getNbAccounts() << ";";
 	std::cout << "total:" << Account::getTotalAmount() << ";";
 	std::cout << "deposits:" << Account::getNbDeposits() << ";";
