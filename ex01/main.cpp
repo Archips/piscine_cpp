@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:38:45 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/24 17:54:49 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/25 11:07:48 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,22 +144,27 @@ int    addContact(PhoneBook *book) {
 
 void    listContact(PhoneBook *book) {
    
-	int	index;
+	std::string	index;
+	int			valid_index;
 
-	index = 0;
+	valid_index = 0;
 	if (book->getNbContact() != 0) {
         std::cout << "---------- ---------- ---------- ----------" << std::endl;
         std::cout << "INDEX     |NAME      |LASTNAME  |NICKNAME  " << std::endl;
         std::cout << "---------- ---------- ---------- ----------" << std::endl;
         for (int i = 0; i < book->getNbContact() % 8; i++)
             book->displayPhoneBook(i);
-		std::cout << std::endl << "Enter index's contact : " << std::endl;
-		std::cin >> index;
-		if (index < 1 || index > 8) 
-			std::cout << "Invalid index" << std::endl;
-			else
-		book->displayContact(index - 1);
+		while (!valid_index) {
 
+			std::cout << std::endl << "Enter index's contact : " << std::endl;
+			std::getline(std::cin, index);
+			if (std::atoi(index.c_str()) < 1 || std::atoi(index.c_str()) > (book->getNbContact() % 8)) 
+				std::cout << std::endl << "Invalid index" << std::endl;
+			else {
+				book->displayContact(std::atoi(index.c_str()) - 1);
+				valid_index = 1;
+			}
+		}
 	}
     else
 		std::cout << "The phone book is empty" << std::endl;
