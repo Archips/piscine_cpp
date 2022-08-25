@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/24 17:53:31 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:05:36 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,15 @@ void    PhoneBook::displayPhoneBook(int index) const {
 void PhoneBook::displayContact(int index) const {
 
 	std::cout << std::endl;
+	std::cout << "Name: ";
     std::cout << this->_book[index].getName() << std::endl;
+	std::cout << "Last name: ";
     std::cout << this->_book[index].getLastName() << std::endl;
+	std::cout << "Nickname: ";
     std::cout << this->_book[index].getNickname() << std::endl;
+	std::cout << "Phone number: ";
     std::cout << this->_book[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: ";
     std::cout << this->_book[index].getSecret() << std::endl;
 	std::cout << std::endl;
     return ;

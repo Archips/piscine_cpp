@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:38:45 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/25 11:07:48 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/25 13:59:25 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int    addContact(PhoneBook *book) {
     return (EXIT_SUCCESS);
 }
 
-void    listContact(PhoneBook *book) {
+int    listContact(PhoneBook *book) {
    
 	std::string	index;
 	int			valid_index;
@@ -152,13 +152,18 @@ void    listContact(PhoneBook *book) {
         std::cout << "---------- ---------- ---------- ----------" << std::endl;
         std::cout << "INDEX     |NAME      |LASTNAME  |NICKNAME  " << std::endl;
         std::cout << "---------- ---------- ---------- ----------" << std::endl;
-        for (int i = 0; i < book->getNbContact() % 8; i++)
-            book->displayPhoneBook(i);
+		if (book->getNbContact() >= 8) 
+			for (int i = 0; i < 8; i++)
+           		book->displayPhoneBook(i);
+		else
+			for (int i = 0; i < book->getNbContact() % 8; i++)
+            	book->displayPhoneBook(i);
 		while (!valid_index) {
-
 			std::cout << std::endl << "Enter index's contact : " << std::endl;
 			std::getline(std::cin, index);
-			if (std::atoi(index.c_str()) < 1 || std::atoi(index.c_str()) > (book->getNbContact() % 8)) 
+			if (std::cin.eof())
+				return (EXIT_FAILURE);
+			if (std::atoi(index.c_str()) < 1 || std::atoi(index.c_str()) > book->getNbContact()) 
 				std::cout << std::endl << "Invalid index" << std::endl;
 			else {
 				book->displayContact(std::atoi(index.c_str()) - 1);
@@ -168,7 +173,7 @@ void    listContact(PhoneBook *book) {
 	}
     else
 		std::cout << "The phone book is empty" << std::endl;
-    return ;
+    return (EXIT_SUCCESS);
 }
 
 int	main(void)
@@ -180,24 +185,27 @@ int	main(void)
 	end = 0;
     while (!end) {
 	
-		if (std::cin.eof())
-			return (1);
-
+		if (std::cin.eof()) {
+			std::cout << std::endl << "Exit.." << std::endl;
+			return (EXIT_FAILURE);
+		}
 		std::cout << "Enter an instruction: ADD | SEARCH | EXIT" << std::endl;
 		std::getline(std::cin, input);
 		if (input.compare("ADD") == 0) {
-            
-			if (addContact(&book) == 1)
+			if (addContact(&book) == 1) {
+				std::cout << std::endl << "Exit.." << std::endl;
 				return (EXIT_FAILURE);
+			}
         }
         else if (input.compare("SEARCH") == 0) {
-            
-			listContact(&book);
+			if (listContact(&book) == 1) {
+				std::cout << std::endl << "Exit.." << std::endl;
+				return (EXIT_FAILURE);
+			}
         }
 		else if (input.compare("EXIT") == 0) {
-		
 			end = 1;
 		}
     }
-	return (0);
+	return (EXIT_SUCCESS);
 }
