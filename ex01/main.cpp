@@ -13,9 +13,7 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <sstream>
 #include <stdlib.h>
-#include <limits>
 
 int addName(std::string *name)
 {
