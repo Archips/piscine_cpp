@@ -6,11 +6,12 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/29 13:15:00 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:07:33 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 
@@ -91,7 +92,7 @@ int		PhoneBook::addPhoneNumber(std::string *phoneNumber) {
 			std::cout << "Enter their phone number : " << std::endl;
 			std::getline(std::cin, *phoneNumber);
 		}
-		if (!PhoneBook::checkNb(*phoneNumber))
+		if (!checkNb(*phoneNumber))
 		{
 			std::cout << "Phone number should only contains digits" << std::endl;
 			std::cout << "Enter their phone number :" << std::endl;
@@ -99,7 +100,7 @@ int		PhoneBook::addPhoneNumber(std::string *phoneNumber) {
 		}
 		if (std::cin.eof())
 			return (1);
-		if (phoneNumber->length() != 0 && PhoneBook::checkNb(*phoneNumber))
+		if (phoneNumber->length() != 0 && checkNb(*phoneNumber))
 			break ;
 	}
 	return (0);
@@ -120,6 +121,65 @@ int		PhoneBook::addSecret(std::string *secret) {
 	return (0);
 }
 
+int		PhoneBook::addContact(void) {
+
+	std::string	name;
+	std::string lastName;
+	std::string nickName;
+	std::string	phoneNumber;
+	std::string	secret;
+	int			index;
+
+	index = getNbContact() % 8;
+
+	if (addName(&name) == 1)
+		return (1);
+	if (addLastName(&lastName) == 1)
+		return (1);
+	if (addNickName(&nickName) == 1)
+		return (1);
+	if (addPhoneNumber(&phoneNumber) == 1)
+		return (1);
+	if (addSecret(&secret) == 1)
+		return (1);
+
+	fillPhoneBook(name, lastName, nickName, phoneNumber, secret, index);
+	return (0);
+}
+int		PhoneBook::searchContact(void) const {
+
+	std::string	index;
+	int			valid_index;
+
+	valid_index = 0;
+	if (getNbContact() != 0) {
+		std::cout << "---------- ---------- ---------- ----------" << std::endl;
+		std::cout << "INDEX     |NAME      |LASTNAME  |NICKNAME  " << std::endl;
+		std::cout << "---------- ---------- ---------- ----------" << std::endl;
+		if (getNbContact() >= 8)
+			for (int i = 0; i < 8; i ++)
+				displayPhoneBook(i);
+		else
+			for (int i = 0; i < getNbContact() % 8; i++)
+				displayPhoneBook(i);
+		while (!valid_index) {
+			std::cout << std::endl << "Enter index's contact : " << std::endl;
+			std::getline(std::cin, index);
+			if (std::cin.eof())
+				return (1);
+			if (std::atoi(index.c_str()) < 1 || std::atoi(index.c_str()) > 8
+					|| std::atoi(index.c_str()) > getNbContact())
+				std::cout << std::endl << "Invalid index" << std::endl;
+			else {
+				displayContact(std::atoi(index.c_str()) -1 );
+				valid_index = 1;
+			}
+		}
+	}
+	else
+		std::cout << "The phone book is empty" << std::endl;
+	return (0);
+}
 
 void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
                       std::string nickName, std::string phoneNumber,

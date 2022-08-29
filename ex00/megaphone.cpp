@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 09:56:34 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/29 12:36:09 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/29 13:19:26 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int main(int ac, char **av) {
 			for (size_t j = 0; j < len; j ++)
 				str[j] = toupper(str[j], loc);
 			std::cout << str;
-			/* if (i != ac -1) */
-			/* 	std::cout << " "; */
 		}
 		std::cout << std::endl;
 	}
