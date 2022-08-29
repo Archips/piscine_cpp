@@ -6,15 +6,16 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 09:56:34 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/17 10:26:52 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/29 12:36:09 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(int ac, char **av)
-{
-	int	len;
+int main(int ac, char **av) {
+
+	size_t	len;
+	std::locale loc;
 
 	(void) av;
 	len = 0;
@@ -24,10 +25,13 @@ int main(int ac, char **av)
 	{
 		for (int i = 1; i < ac; i ++)
 		{
-			len = std::strlen(av[i]);
-			for (int j = 0; j < len; j ++)
-				av[i][j] = std::toupper(av[i][j]);
-			std::cout << av[i];
+			std::string str(av[i]);
+			len = str.size();
+			for (size_t j = 0; j < len; j ++)
+				str[j] = toupper(str[j], loc);
+			std::cout << str;
+			/* if (i != ac -1) */
+			/* 	std::cout << " "; */
 		}
 		std::cout << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:35:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/27 16:20:27 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/29 12:43:28 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Contact.hpp"
 
 Contact::Contact(void) {
-
+	
 	return ;
 }
 

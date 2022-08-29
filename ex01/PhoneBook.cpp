@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/25 14:05:36 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/29 12:58:05 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,102 @@ PhoneBook::~PhoneBook(void) {
 
 	return ;
 }
+
+int		PhoneBook::checkNb(std::string number) const {
+	
+	for (long unsigned int i = 0; i < number.size(); i ++)
+	{
+		if (isdigit(number[i]) == 0) {
+			return (0);
+		}
+	}
+	return (1);
+}
+
+
+int		PhoneBook::addName(std::string *name) {
+
+	while (1)
+	{
+		if (name->empty())
+			std::cout << "Enter their name : " << std::endl;
+		std::getline(std::cin, *name);
+		if (std::cin.eof())
+			return (1);
+		if (!name->empty())
+			break ;
+	}
+	return (0);
+}
+
+int		PhoneBook::addLastName(std::string *lastName) {
+
+	while (1)
+	{
+		if (lastName->empty())
+			std::cout << "Enter their lastname : " << std::endl;
+		std::getline(std::cin, *lastName);
+		if (std::cin.eof())
+			return (1);
+		if (!lastName->empty())
+			break ;
+	}
+	return (0);
+}
+
+int		PhoneBook::addNickName(std::string *nickName) {
+
+	while (1)
+	{
+		if (nickName->empty())
+			std::cout << "Enter their nickname : " << std::endl;
+		std::getline(std::cin, *nickName);
+		if (std::cin.eof())
+			return (1);
+		if (!nickName->empty())
+			break ;
+	}
+	return (0);
+}
+
+int		PhoneBook::addPhoneNumber(std::string *phoneNumber) {
+
+	while (1)
+	{
+		if (phoneNumber->empty())
+		{
+			std::cout << "Enter their phone number : " << std::endl;
+			std::getline(std::cin, *phoneNumber);
+		}
+		if (!PhoneBook::checkNb(*phoneNumber))
+		{
+			std::cout << "Phone number should only contains digits" << std::endl;
+			std::cout << "Enter their phone number :" << std::endl;
+			std::getline(std::cin, *phoneNumber);
+		}
+		if (std::cin.eof())
+			return (1);
+		if (phoneNumber->length() != 0 && PhoneBook::checkNb(*phoneNumber))
+			break ;
+	}
+	return (0);
+}
+
+int		PhoneBook::addSecret(std::string *secret) {
+	
+	while (1)
+	{
+		if (secret->empty())
+			std::cout << "Enter their darkest secret : " << std::endl;
+		std::getline(std::cin, *secret);
+		if (std::cin.eof())
+			return (1);
+		if (secret->length() != 0)
+			break ;
+	}
+	return (0);
+}
+
 
 void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
                       std::string nickName, std::string phoneNumber,
@@ -61,15 +157,15 @@ void PhoneBook::displayContact(int index) const {
 
 	std::cout << std::endl;
 	std::cout << "Name: ";
-    std::cout << this->_book[index].getName() << std::endl;
+    std::cout << this->_book[index % 8].getName() << std::endl;
 	std::cout << "Last name: ";
-    std::cout << this->_book[index].getLastName() << std::endl;
+    std::cout << this->_book[index % 8].getLastName() << std::endl;
 	std::cout << "Nickname: ";
-    std::cout << this->_book[index].getNickname() << std::endl;
+    std::cout << this->_book[index % 8].getNickname() << std::endl;
 	std::cout << "Phone number: ";
-    std::cout << this->_book[index].getPhoneNumber() << std::endl;
+    std::cout << this->_book[index % 8].getPhoneNumber() << std::endl;
 	std::cout << "Darkest secret: ";
-    std::cout << this->_book[index].getSecret() << std::endl;
+    std::cout << this->_book[index % 8].getSecret() << std::endl;
 	std::cout << std::endl;
     return ;
 }

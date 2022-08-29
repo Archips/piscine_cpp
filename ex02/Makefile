@@ -4,7 +4,7 @@ SRC = tests.cpp \
 	  Account.cpp 
 
 CC = c++
-NAME = dreamjob
+NAME = account
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 OBJ = $(SRC:.cpp=.o)
