@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:40:00 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/29 14:07:33 by athirion         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:37:56 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,12 @@ PhoneBook::~PhoneBook(void) {
 	return ;
 }
 
-int		PhoneBook::checkNb(std::string number) const {
-	
-	for (long unsigned int i = 0; i < number.size(); i ++)
-	{
-		if (isdigit(number[i]) == 0) {
-			return (0);
-		}
-	}
-	return (1);
-}
-
-
 int		PhoneBook::addName(std::string *name) {
 
 	while (1)
 	{
 		if (name->empty())
-			std::cout << "Enter their name : " << std::endl;
+			std::cout << "Enter their first name : " << std::endl;
 		std::getline(std::cin, *name);
 		if (std::cin.eof())
 			return (1);
@@ -146,6 +134,21 @@ int		PhoneBook::addContact(void) {
 	fillPhoneBook(name, lastName, nickName, phoneNumber, secret, index);
 	return (0);
 }
+
+void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
+                      std::string nickName, std::string phoneNumber,
+                      std::string secret, int index) {
+    
+	this->_book[index].setName(name);
+    this->_book[index].setLastName(lastName);
+    this->_book[index].setNickname(nickName);
+    this->_book[index].setPhoneNumber(phoneNumber);
+    this->_book[index].setSecret(secret);
+    this->_nbContact ++;
+
+	return ;
+}
+
 int		PhoneBook::searchContact(void) const {
 
 	std::string	index;
@@ -154,7 +157,7 @@ int		PhoneBook::searchContact(void) const {
 	valid_index = 0;
 	if (getNbContact() != 0) {
 		std::cout << "---------- ---------- ---------- ----------" << std::endl;
-		std::cout << "INDEX     |NAME      |LASTNAME  |NICKNAME  " << std::endl;
+		std::cout << "INDEX     |FIRSTNAME |LASTNAME  |NICKNAME  " << std::endl;
 		std::cout << "---------- ---------- ---------- ----------" << std::endl;
 		if (getNbContact() >= 8)
 			for (int i = 0; i < 8; i ++)
@@ -181,20 +184,6 @@ int		PhoneBook::searchContact(void) const {
 	return (0);
 }
 
-void    PhoneBook::fillPhoneBook(std::string name, std::string lastName,
-                      std::string nickName, std::string phoneNumber,
-                      std::string secret, int index) {
-    
-	this->_book[index].setName(name);
-    this->_book[index].setLastName(lastName);
-    this->_book[index].setNickname(nickName);
-    this->_book[index].setPhoneNumber(phoneNumber);
-    this->_book[index].setSecret(secret);
-    this->_nbContact ++;
-
-	return ;
-}
-
 void    PhoneBook::displayPhoneBook(int index) const {
 
     std::cout << std::setw(10) << index + 1 << "|";
@@ -216,7 +205,7 @@ void    PhoneBook::displayPhoneBook(int index) const {
 void PhoneBook::displayContact(int index) const {
 
 	std::cout << std::endl;
-	std::cout << "Name: ";
+	std::cout << "First name: ";
     std::cout << this->_book[index].getName() << std::endl;
 	std::cout << "Last name: ";
     std::cout << this->_book[index].getLastName() << std::endl;
@@ -233,4 +222,15 @@ void PhoneBook::displayContact(int index) const {
 int PhoneBook::getNbContact(void) const {
 
     return (_nbContact);
+}
+
+int		PhoneBook::checkNb(std::string number) const {
+	
+	for (long unsigned int i = 0; i < number.size(); i ++)
+	{
+		if (isdigit(number[i]) == 0) {
+			return (0);
+		}
+	}
+	return (1);
 }
