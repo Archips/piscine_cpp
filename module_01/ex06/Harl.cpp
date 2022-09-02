@@ -55,14 +55,11 @@ void    Harl::complain(std::string level) {
 
     switch (i) {
         case 0:
-                (this->*levelPtr[i])();
-                i ++;
+                (this->*levelPtr[i++])();
         case 1:
-                (this->*levelPtr[i])();
-                i ++;
+                (this->*levelPtr[i++])();
         case 2:
-                (this->*levelPtr[i])();
-                i ++;
+                (this->*levelPtr[i++])();
         case 3:
                 (this->*levelPtr[i])();
                 break;
