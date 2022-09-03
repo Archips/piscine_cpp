@@ -18,12 +18,9 @@ Zombie* zombieHorde(int N, std::string name)
 	Zombie*	zombies;
 
 	zombies = new Zombie[N];
+    if (!zombies)
+        return (NULL);
 	for (int i = 0; i < 42; i ++)
-	{
-		if (i % 2 == 0)
-			zombies[i].setName(name);
-		else
-			zombies[i].setName("Archi");
-	}
+        zombies[i].setName(name);
 	return (zombies);
 }

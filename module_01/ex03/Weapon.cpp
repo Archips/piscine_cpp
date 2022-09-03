@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-#include <string>
 
 Weapon::Weapon(std::string weapon) {
 

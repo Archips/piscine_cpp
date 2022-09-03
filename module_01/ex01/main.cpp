@@ -17,6 +17,11 @@ int	main(void) {
 	
 	Zombie *zombies;
 	zombies = zombieHorde(42, "alfred");
+
+    if (!zombies) {
+        std::cout << "Error" << std::endl;
+        return (1);
+    }
 	for (int i = 0; i < 42; i++)
 		zombies[i].announce();
 	delete [] zombies;

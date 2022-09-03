@@ -43,8 +43,7 @@ void    Harl::complain(std::string level) {
     void(Harl::*levelPtr[4])(void) = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     for (i = 0; i < 4; i ++) {
-        if (level.compare(levels[i])) {
-            i --;
+        if (!level.compare(levels[i])) {
             break;
         }
         if (i == 3) {
@@ -63,7 +62,7 @@ void    Harl::complain(std::string level) {
         case 3:
                 (this->*levelPtr[i])();
                 break;
-        default:
+        case 4:
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }

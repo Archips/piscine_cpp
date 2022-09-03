@@ -20,8 +20,9 @@ int replace(std::string filename, std::string s1, std::string s2) {
         return (1);
     }
     while (getline(infile, line)) {
-        int pos;
-        size_t len;
+
+        int     pos;
+        size_t  len;
 
         pos = 0;
         len = line.size();
@@ -53,10 +54,6 @@ int main(int ac, char **av) {
     filename = av[1];
     s1 = av[2];
     s2 = av[3];
-
-    std::cout << "filename is: " << av[1] << std::endl;
-    std::cout << "s1 is: " << s1 << std::endl;
-    std::cout << "s2 is: " << s2 << std::endl;
 
     if (s1.compare(s2) == 0) {
         std::cout << "Error : there's nothing to replace" << std::endl;
