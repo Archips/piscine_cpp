@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:38:04 by athirion          #+#    #+#             */
-/*   Updated: 2022/08/31 14:50:53 by athirion         ###   ########.fr       */
+/*   Updated: 2022/09/04 12:47:55 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ Zombie* zombieHorde(int N, std::string name)
 {
 	Zombie*	zombies;
 
+	if (N <= 0) {
+		return (NULL);
+	}
 	zombies = new Zombie[N];
-    if (!zombies)
+    if (!zombies) {
         return (NULL);
-	for (int i = 0; i < 42; i ++)
-        zombies[i].setName(name);
+	}
+	for (int i = 0; i < N; i ++) {
+	    zombies[i].setName(name);
+	}
 	return (zombies);
 }

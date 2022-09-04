@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 12:34:02 by athirion          #+#    #+#             */
+/*   Updated: 2022/09/04 13:05:57 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
 
@@ -6,8 +18,6 @@ int replace(std::string filename, std::string s1, std::string s2) {
     std::ifstream   infile;
     std::ofstream   outfile;
     std::string     line;
-    (void) s1;
-    (void) s2;
 
     infile.open(filename.c_str());
     if (!infile.is_open()) {
