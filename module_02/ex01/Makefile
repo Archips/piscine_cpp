@@ -1,7 +1,8 @@
 .PHONY : all re clean fclean
 
-SRC = main.cpp 
-
+SRC = main.cpp \
+	  Fixed.cpp
+		
 CXX = c++
 NAME = fixed
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98

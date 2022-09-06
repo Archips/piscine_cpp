@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <string>
 
 class Fixed {
 
@@ -30,7 +31,7 @@ class Fixed {
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);	
 		float	toFloat(void) const;
-		/* int		toInt(void) const; */
+		int		toInt(void) const;
 
 	private:
 
@@ -40,6 +41,6 @@ class Fixed {
 
 };
 
-std::ostream & operator<<(std::ostream & o, int const & rhs);
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
 
 #endif

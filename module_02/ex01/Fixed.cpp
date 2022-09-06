@@ -20,8 +20,14 @@ Fixed::Fixed(void) : _nb(0) {
 
 
 Fixed::Fixed(const int nb) {
-	std::cout << "Parametric constructor called" << std::endl;
-	this->_nb = nb;
+	std::cout << "Int constructor called" << std::endl;
+	this->_nb = nb << this->_bits ;
+}
+
+Fixed::Fixed(const float nb) {
+
+    std::cout << "Float constructor called" << std::endl;
+    this->_nb = roundf(nb * (1 << this->_bits));
 }
 
 
@@ -43,30 +49,37 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
 	return *this;
 }
 
-
-std::ostream & operator<<(std::ostream & o, int const & rhs) {
-
-	o << rhs.getRawBits();
-	return (o);
-}
-
 int	Fixed::getRawBits(void) const {
-	
-	std::cout << "getRawBits member function called" << std::endl;
+
 	return (this->_nb);
 }
 
 
 void Fixed::setRawBits(int const raw) {
 
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_nb = raw;
 }
 
 float	Fixed::toFloat(void) const {
-	return (roundf(this->_nb);
+
+    float nb;
+
+    nb = this->_nb / (float)(1 << _bits);
+
+	return (nb);
 }
 
-/* int		Fixed::toInt(void) const { */
-		
-/* } */
+int		Fixed::toInt(void) const {
+
+    int nb;
+
+    nb = this->_nb;
+    nb = nb >> this->_bits;
+    return (nb);
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs) {
+
+    o << rhs.toFloat();
+    return (o);
+}

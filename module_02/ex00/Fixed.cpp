@@ -19,12 +19,6 @@ Fixed::Fixed(void) : _nb(0) {
 }
 
 
-/* Fixed::Fixed(const int nb) { */
-/* 	std::cout << "Parametric constructor called" << std::endl; */
-/* 	this->_nb = nb; */
-/* } */
-
-
 Fixed::Fixed(const Fixed &fixed) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
