@@ -6,12 +6,12 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/09/06 16:48:36 by athirion         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:07:27 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
+#include <cmath>
 
 Fixed::Fixed(void) : _nb(0) {
 	std::cout << "Default constructor called" << std::endl;
@@ -19,10 +19,10 @@ Fixed::Fixed(void) : _nb(0) {
 }
 
 
-/* Fixed::Fixed(const int nb) { */
-/* 	std::cout << "Parametric constructor called" << std::endl; */
-/* 	this->_nb = nb; */
-/* } */
+Fixed::Fixed(const int nb) {
+	std::cout << "Parametric constructor called" << std::endl;
+	this->_nb = nb;
+}
 
 
 Fixed::Fixed(const Fixed &fixed) {
@@ -43,14 +43,30 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
 	return *this;
 }
 
+
+std::ostream & operator<<(std::ostream & o, int const & rhs) {
+
+	o << rhs.getRawBits();
+	return (o);
+}
+
 int	Fixed::getRawBits(void) const {
 	
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_nb);
 }
 
+
 void Fixed::setRawBits(int const raw) {
 
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_nb = raw;
 }
+
+float	Fixed::toFloat(void) const {
+	return (roundf(this->_nb);
+}
+
+/* int		Fixed::toInt(void) const { */
+		
+/* } */
