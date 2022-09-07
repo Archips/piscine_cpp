@@ -1,9 +1,12 @@
 .PHONY : all re clean fclean
 
-SRC = main.cpp 
+SRC = main.cpp \
+	  Fixed.cpp \
+	  Point.cpp \
+	  bsp.cpp
 
 CXX = c++
-NAME = 
+NAME = bsp
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 OBJ = $(SRC:.cpp=.o)
