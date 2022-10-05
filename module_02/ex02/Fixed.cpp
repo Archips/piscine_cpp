@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/04 16:38:44 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 10:18:33 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,8 +169,8 @@ Fixed Fixed::operator--(int) {
 
     Fixed temp;
 
-	this->_nb --;
     temp._nb = this->_nb;
+	this->_nb --;
     return (temp);
 }
 
@@ -196,7 +196,7 @@ float	Fixed::toFloat(void) const {
 
 int		Fixed::toInt(void) const {
 
-	return (nb / (1 << this->_bits));
+	return (this->_nb / (1 << this->_bits));
 }
 
 

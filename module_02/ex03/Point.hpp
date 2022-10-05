@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:08:38 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/04 17:05:50 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 10:34:05 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,16 @@ class Point {
 		
 	    Point & operator=(Point const &rhs);
 
-    	bool	bsp(Point const a, Point const b, Point const c, Point const point) const;
-
 		Fixed	get_x(void) const;
 		Fixed	get_y(void) const;
 
 	private:
 
-        int					_rawBits;
         Fixed const         _x;
         Fixed const         _y;
 };
 
-float area(int x1, int x2, int x3, int y1, int y2, int y3) ;
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
+/* float area(Point const a, Point const b, Point const c); */
 
 #endif

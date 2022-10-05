@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/04 17:06:15 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:13:28 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
  ** CONSTRUCTORS
  */ 
 
-Point::Point(void) : _x(Fixed()), _y(Fixed()) {
+Point::Point(void): _x(0), _y(0) {
 
-	// std::cout << "Default constructor called" << std::endl;
+	/* std::cout << "Default constructor called" << std::endl; */
 }
 
 Point::Point(float const x, float const y) : _x(Fixed(x)), _y(Fixed(y)){
 
-    // std::cout << "Float constructor called" << std::endl;
+    /* std::cout << "Float constructor called" << std::endl; */
 }
 
 
-Point::Point(const Point &point) {
+Point::Point(const Point &point): _x(point.get_x()), _y(point.get_y()) {
 
 	// std::cout << "Copy constructor called" << std::endl;
 	*this = point;
@@ -50,7 +50,7 @@ Point::~Point(void) {
 Point &Point::operator=(const Point &rhs) {
 
     // std::cout << "Copy assigment operator called" << std::endl;
-    this->_rawBits = rhs._rawBits;
+	(void) rhs;;
     return (*this);
 }
 

@@ -6,28 +6,36 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/04 17:00:50 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:25:18 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
-#include <cmath>
 
-float   area(int x1, int x2, int x3, int y1, int y2, int y3) {
+float   area(Point const a, Point const b, Point const c) {
 
-    return (std::abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0));
+	float x1 = a.get_x().toFloat();
+	float x2 = b.get_x().toFloat();
+	float x3 = c.get_x().toFloat();
+	float y1 = a.get_y().toFloat();
+	float y2 = b.get_y().toFloat();
+	float y3 = c.get_y().toFloat();
+	
+	float area = (x1 * (y2 - y3) + x2 * (y3 - y1)+ x3 * (y1 - y2)) / 2.0;
+	
+	if (area < 0)
+		area *= -1;
+
+    return (area);
 }
 
-bool    Point::bsp(Point const a, Point const b, Point const c, Point const point) const {
+bool	bsp(Point const a, Point const b, Point const c, Point const point) {
 
-    float A = area(a.get_x().toInt(), b.get_x().toInt(), c.get_x().toInt(), a.get_y().toInt(), b.get_y().toInt(), c.get_y().toInt());
-    float A1 = area(point.get_x().toInt(), b.get_x().toInt(), c.get_x().toInt(), point.get_y().toInt(), b.get_y().toInt(), c.get_y().toInt());
-    float A2 = area(a.get_x().toInt(), point.get_x().toInt(), c.get_x().toInt(), a.get_y().toInt(), point.get_y().toInt(), c.get_y().toInt());
-    float A3 = area(a.get_x().toInt(), b.get_x().toInt(), point.get_x().toInt(), a.get_y().toInt(), b.get_y().toInt(), point.get_y().toInt());
-    std::cout << "A: " << A << std::endl;
-    std::cout << "A1: " << A1 << std::endl;
-    std::cout << "A2: " << A2 << std::endl;
-    std::cout << "A3: " << A3 << std::endl;
-    std::cout << "A1 + A2 + A3 : " << A1 + A2 + A3 << std::endl;
-    return (A == A1 + A2 + A3);
+
+	float A = area(a, b, c);
+    float A1 = area(point, b, c);
+    float A2 = area(a, point, c);
+    float A3 = area(a, b, point);
+   
+	return (A1 != 0 && A2 != 0 && A3 != 0 && A == A1 + A2 + A3);
 }

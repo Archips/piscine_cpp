@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/09/07 14:04:48 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:34:57 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@
 int main()
 {
 
-    //Point const a(0, 1);
-    //Point const b(2.5, 3);
-    //Point const c(2.5, 1);
-    //Point point(2, 2);
+    Point const a(1, 3);
+    Point const b(2, 1);
+    Point const c(6.5, 3);
 
-    Point const a(12, 3.5);
-    Point const b(2, 5.4);
-    Point const c(0.4, 19);
-    Point point(-90, -90);
+    Point const in(2.5, 2);
+    Point const out(3, 4);
+    Point const edge(1.5, 2);
+    Point const side(4, 3);
 
-    if (point.bsp(a, b, c, point))
-        std::cout << "Inside";
-    else
-        std::cout << "Not Inside";
+	std::cout << "IN point: " << bsp(a, b, c, in) << std::endl;
+	std::cout << "OUT point: " << bsp(a, b, c, out) << std::endl;
+	std::cout << "EDGE point: " << bsp(a, b, c, edge) << std::endl;
+	std::cout << "SIDE point: " << bsp(a, b, c, side) << std::endl;
 
-    return 0;
+	return 0;
 }
