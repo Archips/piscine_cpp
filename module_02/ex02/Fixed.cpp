@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/05 10:18:33 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:38:16 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,27 @@
 
 Fixed::Fixed(void) : _nb(0) {
 
-	std::cout << "Default constructor called" << std::endl;
+	/* std::cout << "Default constructor called" << std::endl; */
 }
 
 
 Fixed::Fixed(const int nb) {
 
-	std::cout << "Int constructor called" << std::endl;
+	/* std::cout << "Int constructor called" << std::endl; */
 	this->_nb = nb * ( 1 << this->_bits) ;
 }
 
 
 Fixed::Fixed(const float nb) {
 
-    std::cout << "Float constructor called" << std::endl;
+    /* std::cout << "Float constructor called" << std::endl; */
     this->_nb = roundf(nb * (1 << this->_bits));
 }
 
 
 Fixed::Fixed(const Fixed &fixed) {
 
-	std::cout << "Copy constructor called" << std::endl;
+	/* std::cout << "Copy constructor called" << std::endl; */
 	*this = fixed;
 }
 
@@ -49,7 +49,7 @@ Fixed::Fixed(const Fixed &fixed) {
 
 Fixed::~Fixed(void) {
 
-	std::cout << "Destructor called" << std::endl;
+	/* std::cout << "Destructor called" << std::endl; */
 }
 
 
@@ -59,7 +59,7 @@ Fixed::~Fixed(void) {
 
 Fixed &Fixed::operator=(const Fixed &rhs) {
 
-	std::cout << "Copy assigment operator called" << std::endl;
+	/* std::cout << "Copy assigment operator called" << std::endl; */
 	if (this != &rhs) 
 		this->_nb = rhs.getRawBits();
 	
@@ -110,25 +110,37 @@ bool Fixed::operator!=(const Fixed &rhs) const {
 
 Fixed Fixed::operator+(Fixed const &rhs) const {
 
-	return (this->_nb + rhs._nb);
+	Fixed temp;
+
+	temp._nb = this->_nb + rhs._nb;
+	return (temp);
 }
 
 
 Fixed Fixed::operator-(Fixed const &rhs) const {
 
-	return (this->_nb - rhs._nb);
+	Fixed temp;
+
+	temp._nb = this->_nb - rhs._nb;
+	return (temp);
 }
 
 
 Fixed Fixed::operator*(Fixed const &rhs) const {
 
-	return (this->toFloat() * rhs.toFloat());
+	Fixed temp;
+
+	temp._nb = this->toFloat() * rhs.toFloat() * (1 << this->_bits);
+	return (temp);
 }
 
 
 Fixed Fixed::operator/(Fixed const &rhs) const {
 
-	return (this->_nb / rhs._nb);
+	Fixed temp;
+
+	temp._nb = (this->toFloat() / rhs.toFloat()) * (1 << this->_bits);
+	return (temp);
 }
 
 /*

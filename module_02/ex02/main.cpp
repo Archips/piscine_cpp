@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:53:18 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/04 14:57:28 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:39:13 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,28 @@ int main( void ) {
 	std::cout << "d = c++" << std::endl;
 	std::cout << "c -> " << c.toInt() << std::endl;
 	std::cout << "d -> " << d.toInt() << std::endl;
+
+	Fixed e( Fixed (6.5f) / Fixed (2.0f));
+
+	std::cout << "e / 2" << std::endl;
+	std::cout << "e -> " << e.toFloat() << std::endl;
+	std::cout << "e -> " << e.toInt() << std::endl;
+
+	e = e + Fixed(4);
+
+	std::cout << "e + 4" << std::endl;
+	std::cout << "e -> " << e.toInt() << std::endl;
+
+	e = e - Fixed(1);
+
+	std::cout << "e - 1" << std::endl;
+	std::cout << "e -> " << e.toInt() << std::endl;
+
+	e = e * Fixed(2);
+	std::cout << "e * 2" << std::endl;
+	std::cout << "e -> " << e.toInt() << std::endl;
+	std::cout << "e -> " << e.toFloat() << std::endl;
+	std::cout << "e -> " << e.toInt() << std::endl;
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:44:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/04 16:35:16 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:03:02 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Fixed::Fixed(void) : _nb(0) {
 
 Fixed::Fixed(const int nb) {
 	std::cout << "Int constructor called" << std::endl;
-	this->_nb = nb * (1 << this->_bits) ;
+	setRawBits(nb * (1 << this->_bits));
 }
 
 Fixed::Fixed(const float nb) {
 
     std::cout << "Float constructor called" << std::endl;
-    this->_nb = roundf(nb * (1 << this->_bits));
+    setRawBits(roundf(nb * (1 << this->_bits)));
 }
 
 

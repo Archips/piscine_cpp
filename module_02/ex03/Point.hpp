@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:08:38 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/05 10:34:05 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:48:37 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ class Point {
 };
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point);
-/* float area(Point const a, Point const b, Point const c); */
 
 #endif
