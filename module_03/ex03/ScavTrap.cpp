@@ -16,7 +16,6 @@
  ** CONSTRUCTORS
  */
 
-
 ScavTrap::ScavTrap(void) {
 
     std::cout << "ScavTrap default constructor called" << std::endl;

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAP_TRAP_H
-# define CLAP_TRAP_H
+#ifndef CLAP_TRAP_HPP
+# define CLAP_TRAP_HPP
 
 # include <string>
 # include <iostream>
