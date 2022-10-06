@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
 	ClapTrap archi("Archi");
-	ClapTrap rorobot("Rorobot");
+	ScavTrap rorobot("Rorobot");
 
 	std::cout << archi.getName() << " says : Hello" << std::endl;
 	std::cout << rorobot.getName() << " says : Hello" << std::endl;
@@ -43,6 +44,8 @@ int	main(void)
 
 	std::cout << "Rorobot has " << rorobot.getEnergy() << " energy left" << std::endl;
 	std::cout << "Archi has " << archi.getEnergy() << " energy left" << std::endl;
+
+    rorobot.guardGate();
 
 	return (0);
 }

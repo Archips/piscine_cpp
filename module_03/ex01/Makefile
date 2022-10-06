@@ -1,10 +1,11 @@
 .PHONY : all re clean fclean
 
 SRC = main.cpp \
-	  ClapTrap.cpp
+	  ClapTrap.cpp \
+	  ScavTrap.cpp
 		
 CXX = c++
-NAME = claptrap
+NAME = scavtrap
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 OBJ = $(SRC:.cpp=.o)

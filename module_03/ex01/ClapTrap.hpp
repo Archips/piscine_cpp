@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef CLAP_TRAP_H
+# define CLAP_TRAP_H
 
 # include <string>
 # include <iostream>
@@ -41,7 +41,7 @@ class ClapTrap {
 		void			setEnergy(unsigned int energy);
 		void			setDamage(unsigned int damage);
 
-	private :
+	protected :
 
 		std::string 	_name;
 		unsigned int	_HP;

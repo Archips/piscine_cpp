@@ -16,10 +16,9 @@
  ** CONSTRUCTORS
  */
 
-
 ClapTrap::ClapTrap(void) {
 
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 	this->_name = "ClapTrap";
 	this->_HP = 10;
 	this->_energy = 10;
@@ -29,7 +28,7 @@ ClapTrap::ClapTrap(void) {
 
 ClapTrap::ClapTrap(std::string name) {
 
-	std::cout << name << " constructor called" << std::endl;
+	std::cout << "ClapTrap " << name << " constructor called" << std::endl;
 	this->_name = name;
 	this->_HP = 10;
 	this->_energy = 10;
@@ -40,7 +39,7 @@ ClapTrap::ClapTrap(std::string name) {
 
 ClapTrap::ClapTrap(const ClapTrap &src) {
 
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = src;
 }
 
@@ -51,7 +50,7 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 
 ClapTrap::~ClapTrap(void) {
 
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 /*
@@ -60,7 +59,7 @@ ClapTrap::~ClapTrap(void) {
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
 
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	if (this != &rhs) {
 		this->_name = rhs._name;
 		this->_HP = rhs._HP;
