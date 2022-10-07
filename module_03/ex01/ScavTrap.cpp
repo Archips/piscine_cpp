@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:49:24 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/06 16:51:37 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:15:32 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(std::string name) {
 
 ScavTrap::ScavTrap(const ScavTrap &src) {
 
-    std::cout << "ScavTrap copy constructor called" << std::endl;
+    std::cout << "ScavTrap " << src._name << " copy constructor called" << std::endl;
     *this = src;
 }
 
@@ -47,7 +47,7 @@ ScavTrap::ScavTrap(const ScavTrap &src) {
 
 ScavTrap::~ScavTrap(void) {
 
-    std::cout << "ScavTrap destructor called" << std::endl;
+    std::cout << "ScavTrap " << this->_name << " destructor called" << std::endl;
 }
 
 /*
@@ -56,7 +56,7 @@ ScavTrap::~ScavTrap(void) {
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
 
-    std::cout << "ScavTrap copy assignment operator called" << std::endl;
+    std::cout << "ScavTrap " << rhs._name << " copy assignment operator called" << std::endl;
     if (this != &rhs) {
         this->_name = rhs._name;
         this->_HP = rhs._HP;
@@ -72,5 +72,5 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
 
 void    ScavTrap::guardGate(void) {
 
-    std::cout << "ScavTrap gate keeper mode activated" << std::endl;
+    std::cout << this->_name << " gate keeper mode activated" << std::endl;
 }

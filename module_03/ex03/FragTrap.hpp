@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:49:24 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/06 16:51:37 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:17:16 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 
     public:
 
