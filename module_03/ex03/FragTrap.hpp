@@ -6,12 +6,12 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:49:24 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/07 10:17:16 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/06 16:51:37 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP
-# define FRAG_TRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 #include <iostream>
@@ -27,6 +27,14 @@ class FragTrap : virtual public ClapTrap {
 
         FragTrap & operator=(FragTrap const &rhs);
         void    highFiveGuys(void);
+        void	fragStatus(void) const;
+
+    protected:
+
+        static const unsigned int    _hitPoint = 100;
+        static const unsigned int    _energyPoint = 100;
+        static const unsigned int    _attackDamage = 30;
+
 };
 
 #endif

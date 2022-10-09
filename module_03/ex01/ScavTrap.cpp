@@ -20,7 +20,6 @@
 ScavTrap::ScavTrap(void) {
 
     std::cout << "ScavTrap default constructor called" << std::endl;
-    this->_name = "ScavTrap";
     this->_HP = 100;
     this->_energy = 50;
     this->_damage = 20;
@@ -73,4 +72,32 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
 void    ScavTrap::guardGate(void) {
 
     std::cout << this->_name << " gate keeper mode activated" << std::endl;
+}
+
+void	ScavTrap::attack(const std::string &target)
+{
+    if (this->_energy <= 0) {
+
+        std::cout << "ScavTrap attack failed " << this->_name << " has not enough resources" << std::endl;
+        return ;
+    }
+    if (this->_HP <= 0) {
+
+        std::cout << "ScavTrap attack failed " << this->_name << " is dead" << std::endl;
+        return;
+    }
+
+    this->_energy --;
+    std::cout << "The ScavTrap " << this->_name << " attacks " << target
+              << ", causing " << this->_damage << " points of damage!" << std::endl;
+}
+
+void	ScavTrap::scavStatus(void) const {
+
+    std::cout << std::endl;
+    std::cout << "-----------[ " << this->_name << " ]-----------" << std::endl;
+    std::cout << "HP [ " << this->_HP << " ]" << std::endl;
+    std::cout << "Energy [ " << this->_energy << " ]" << std::endl;
+    std::cout << "Damage [ " << this->_damage << " ]" << std::endl;
+    std::cout << std::endl;
 }

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAP_TRAP_HPP
-# define CLAP_TRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <string>
 # include <iostream>
@@ -30,6 +30,8 @@ class ClapTrap {
 		void			attack(const std::string &target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
+
+        void	        clapStatus(void) const;
 
 		std::string		getName(void) const;
 		unsigned int	getHP(void) const;

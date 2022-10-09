@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAV_TRAP_HPP
-# define SCAV_TRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <iostream>
 #include "ClapTrap.hpp"
@@ -26,7 +26,9 @@ class ScavTrap : public ClapTrap {
 		~ScavTrap(void);
 
 		ScavTrap & operator=(ScavTrap const &rhs);
+        void    attack(const std::string &target);
         void    guardGate(void);
+        void	scavStatus(void) const;
 };
 
 #endif

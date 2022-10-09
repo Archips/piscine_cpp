@@ -11,42 +11,43 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include "FragTrap.hpp"
 
 int	main(void)
 {
-	FragTrap archi("Archi");
-	ScavTrap rorobot("Rorobot");
+    FragTrap rorobot("Rorobot");
+    rorobot.fragStatus();
+    rorobot.takeDamage(3);
+    rorobot.fragStatus();
+    rorobot.attack("archi");
+    rorobot.fragStatus();
+    rorobot.beRepaired(10);
+    rorobot.fragStatus();
+    rorobot.takeDamage(13);
+    rorobot.fragStatus();
+    rorobot.attack("archi");
 
-	std::cout << archi.getName() << " says : Hello" << std::endl;
-	std::cout << rorobot.getName() << " says : Hello" << std::endl;
+    FragTrap archi(rorobot);
+    archi.setName("Archi");
 
-	archi.setDamage(10);
+    archi.takeDamage(10);
+    archi.fragStatus();
+    rorobot.fragStatus();
+    archi.attack("rorobot");
+    rorobot.takeDamage(10);
 
-	archi.attack("rorobot");
-	rorobot.takeDamage(archi.getDamage());
-	std::cout << "Rorobot has " << rorobot.getHP() << " HP left" << std::endl;
+    archi.fragStatus();
+    rorobot.fragStatus();
 
-	rorobot.beRepaired(100);
+    FragTrap archibot;
+    archibot = rorobot;
+    archibot.setName("Archibot");
 
-	std::cout << "Rorobot has " << rorobot.getEnergy() << " energy left" << std::endl;
-	std::cout << "Archi has " << archi.getEnergy() << " energy left" << std::endl;
+    archi.fragStatus();
+    rorobot.fragStatus();
+    archibot.fragStatus();
 
-	for (int i = 0; i < 10; i++) {
-		archi.attack("rorobot");
-		rorobot.takeDamage(archi.getDamage());
-		std::cout << "Rorobot has " << rorobot.getHP() << " HP left" << std::endl;
-		std::cout << "Rorobot has " << rorobot.getEnergy() << " energy left" << std::endl;
-		std::cout << "Archi has " << archi.getEnergy() << " energy left" << std::endl;
-	}
-
-	archi.beRepaired(100);
-
-	std::cout << "Rorobot has " << rorobot.getEnergy() << " energy left" << std::endl;
-	std::cout << "Archi has " << archi.getEnergy() << " energy left" << std::endl;
-
-    rorobot.guardGate();
     archi.highFiveGuys();
 
 	return (0);

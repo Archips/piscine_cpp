@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP
-# define FRAG_TRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 #include <iostream>
@@ -27,6 +27,7 @@ class FragTrap : public ClapTrap {
 
         FragTrap & operator=(FragTrap const &rhs);
         void    highFiveGuys(void);
+        void	fragStatus(void) const;
 };
 
 #endif

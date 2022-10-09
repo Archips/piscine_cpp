@@ -31,6 +31,8 @@ class ClapTrap {
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 
+        void	        clapStatus(void) const;
+
 		std::string		getName(void) const;
 		unsigned int	getHP(void) const;
 		unsigned int	getEnergy(void) const;

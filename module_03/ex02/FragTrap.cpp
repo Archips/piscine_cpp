@@ -19,7 +19,7 @@
 FragTrap::FragTrap(void) {
 
     std::cout << "FragTrap default constructor called" << std::endl;
-    this->_name = "FragTrap";
+    this->_name = "Unknown";
     this->_HP = 100;
     this->_energy = 100;
     this->_damage = 30;
@@ -72,4 +72,14 @@ FragTrap &FragTrap::operator=(const FragTrap &rhs) {
 void    FragTrap::highFiveGuys(void) {
 
     std::cout << "Hey you! Wanna high five ?" << std::endl;
+}
+
+void	FragTrap::fragStatus(void) const {
+
+    std::cout << std::endl;
+    std::cout << "-----------[ " << this->_name << " ]-----------" << std::endl;
+    std::cout << "HP [ " << this->_HP << " ]" << std::endl;
+    std::cout << "Energy [ " << this->_energy << " ]" << std::endl;
+    std::cout << "Damage [ " << this->_damage << " ]" << std::endl;
+    std::cout << std::endl;
 }

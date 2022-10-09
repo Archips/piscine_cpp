@@ -16,11 +16,9 @@
  ** CONSTRUCTORS
  */
 
-
 ClapTrap::ClapTrap(void) {
 
 	std::cout << "ClapTrap default constructor called" << std::endl;
-	this->_name = "ClapTrap";
 	this->_HP = 10;
 	this->_energy = 10;
 	this->_damage = 0;
@@ -116,35 +114,58 @@ void	ClapTrap::setDamage(unsigned int damage) {
  
 void	ClapTrap::attack(const std::string &target)
 {
-	if (_HP == 0 || _energy == 0) {
+	if (this->_energy <= 0) {
 
-		std::cout << _name << " has not enough ressources to attack " << target << std::endl;
+		std::cout << "Attack failed " << this->_name << " has not enough resources" << std::endl;
 		return ;
 	}
+    if (this->_HP <= 0) {
+
+        std::cout << "Attack failed " << this->_name << " is dead" << std::endl;
+        return;
+    }
 	
 	this->_energy --;
-	std::cout << _name << " attacks " << target 
-		<< ", causing " << _damage << " points of damage!" << std::endl;
+	std::cout << this->_name << " attacks " << target
+		<< ", causing " << this->_damage << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 
-	if (this->_HP <= amount)
-		this->_HP = 0;
-	else
-		this->_HP -= amount;
-	std::cout << _name << " takes " << amount << " points of damage" << std::endl;
+	if (this->_HP <= amount) {
+        this->_HP = 0;
+        std::cout << this->_name << " has died" << std::endl;
+    }
+	else {
+        this->_HP -= amount;
+        std::cout << this->_name << " takes " << amount << " points of damage" << std::endl;
+    }
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 
-	if (_HP == 0 || _energy == 0) {
+    if (this->_energy <= 0) {
 
-		std::cout << _name << " has not enough ressources to be repaired" << std::endl;
-		return ;
-	}
+        std::cout << "Reparation failed " << this->_name << " has not enough resources" << std::endl;
+        return ;
+    }
+    if (this->_HP <= 0) {
 
-	_energy --;
-	_HP += amount;
-	std::cout << _name << " gains " << amount << " HP points" << std::endl;
+        std::cout << "Reparation failed " << this->_name << " is dead" << std::endl;
+        return;
+    }
+
+	this->_energy --;
+	this->_HP += amount;
+	std::cout << this->_name << " gains " << amount << " HP points" << std::endl;
+}
+
+void	ClapTrap::clapStatus(void) const {
+
+    std::cout << std::endl;
+    std::cout << "-----------[ " << this->_name << " ]-----------" << std::endl;
+    std::cout << "HP [ " << this->_HP << " ]" << std::endl;
+    std::cout << "Energy [ " << this->_energy << " ]" << std::endl;
+    std::cout << "Damage [ " << this->_damage << " ]" << std::endl;
+    std::cout << std::endl;
 }
