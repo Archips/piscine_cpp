@@ -5,7 +5,7 @@
 
 int main(void) {
 
-    {
+    /*{
         const Animal *animals[10];
 
         for (int i = 0; i < 10; i ++) {
@@ -57,7 +57,10 @@ int main(void) {
         std::cout << std::endl << "The copy of Leonard is thinking : " << std::endl;
         for (int i = 0; i < 100; i++)
             std::cout << "[ " << i << " ]: " << otherCat.getIdea(i) << std::endl;
-    }
+    }*/
+
+    Animal test;
+
     return (0);
 
 }
