@@ -14,39 +14,47 @@
 
 int	main(void)
 {
-	ClapTrap rorobot("Rorobot");
-	rorobot.clapStatus();
-	rorobot.setDamage(10);
-	rorobot.clapStatus();
-	rorobot.takeDamage(3);
-    rorobot.clapStatus();
-	rorobot.attack("archi");
-    rorobot.clapStatus();
-	rorobot.beRepaired(10);
-    rorobot.clapStatus();
-	rorobot.takeDamage(13);
-    rorobot.clapStatus();
-	rorobot.attack("archi");
-
-	ClapTrap archi(rorobot);
-	archi.setName("Archi");
-
-	archi.takeDamage(10);
-	archi.clapStatus();
-    rorobot.clapStatus();
-	archi.attack("rorobot");
-	rorobot.takeDamage(10);
-
-    archi.clapStatus();
+    ClapTrap rorobot("Rorobot");
     rorobot.clapStatus();
 
-	ClapTrap archibot;
-	archibot = rorobot;
-	archibot.setName("Archibot");
+    // ROROBOT DYING //
 
-    archi.clapStatus();
+    rorobot.attack("Archi");
+    rorobot.takeDamage(9);
     rorobot.clapStatus();
-	archibot.clapStatus();
+    rorobot.beRepaired(5);
+    rorobot.clapStatus();
+    rorobot.takeDamage(10);
+    rorobot.clapStatus();
+    rorobot.attack("Archi");
+    rorobot.beRepaired(10);
 
+    // ROROBOT RUNNING OUT OF ENERGY //
+
+    /*for (int i = 0; i < 10; i ++)
+        rorobot.attack("Archi");
+    std::cout << std::endl;
+    rorobot.clapStatus();
+    rorobot.attack("Archi");
+    rorobot.beRepaired(10);*/
+
+    // CANONICAL TEST //
+
+    /* ClapTrap archibot;
+    archibot = rorobot;
+    archibot.clapStatus();
+    archibot.setName("Archibot");
+    archibot.takeDamage(7);
+    archibot.clapStatus();
+    ClapTrap robot(archibot);
+    robot.clapStatus();
+    robot.setName("Robot");
+    robot.takeDamage(3);
+    robot.attack("Archi");
+    robot.clapStatus();
+    archibot.clapStatus();
+    rorobot.clapStatus(); */
+
+    std::cout << std::endl;
 	return (0);
 }

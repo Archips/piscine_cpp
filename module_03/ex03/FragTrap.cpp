@@ -16,16 +16,15 @@
  ** CONSTRUCTORS
  */
 
-FragTrap::FragTrap(void): ClapTrap() {
+FragTrap::FragTrap(void) {
 
     std::cout << "FragTrap default constructor called" << std::endl;
-    this->_name = "Unknown";
     this->_HP = 100;
     this->_energy = 100;
     this->_damage = 30;
 }
 
-FragTrap::FragTrap(std::string name): ClapTrap(name) {
+FragTrap::FragTrap(std::string name) {
 
     std::cout << "FragTrap " << name << " constructor called" << std::endl;
     this->_name = name;
@@ -36,7 +35,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name) {
 
 FragTrap::FragTrap(const FragTrap &src) {
 
-    std::cout << "FragTrap copy constructor called" << std::endl;
+    std::cout << "FragTrap " << src._name << " copy constructor called" << std::endl;
     *this = src;
 }
 
@@ -46,7 +45,7 @@ FragTrap::FragTrap(const FragTrap &src) {
 
 FragTrap::~FragTrap(void) {
 
-    std::cout << "FragTrap destructor called" << std::endl;
+    std::cout << "FragTrap " << this->_name << " destructor called" << std::endl;
 }
 
 /*
@@ -55,7 +54,7 @@ FragTrap::~FragTrap(void) {
 
 FragTrap &FragTrap::operator=(const FragTrap &rhs) {
 
-    std::cout << "FragTrap copy assignment operator called" << std::endl;
+    std::cout << "FragTrap " << rhs._name << " copy assignment operator called" << std::endl;
     if (this != &rhs) {
         this->_name = rhs._name;
         this->_HP = rhs._HP;

@@ -19,7 +19,6 @@
 DiamondTrap::DiamondTrap(void) {
 
 	std::cout << "DiamondTrap default constructor called" <<std::endl;
-    this->DiamondTrap::_name = "Unknown";
     ClapTrap::_name = "Unknown_clap_name";
     this->_HP = FragTrap::_hitPoint;
     this->_energy = ScavTrap::_energyPoint;
@@ -38,8 +37,9 @@ DiamondTrap::DiamondTrap(std::string name) {
 
 DiamondTrap::DiamondTrap(const DiamondTrap &src){
 
-	std::cout << "DiamondTrap copy constructor called" << std::endl;
-	this->_name = src._name;
+	std::cout << "DiamondTrap " << src._name << " copy constructor called" << std::endl;
+    this->_name = src._name;
+    ClapTrap::_name = src._name + "_clap_name";
     this->_HP = src._HP;
     this->_energy = src._energy;
     this->_damage = src._damage;
@@ -52,7 +52,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &src){
 
 DiamondTrap::~DiamondTrap(void) {
 
-	std::cout << "DiamondTrap destructor called" << std::endl;
+	std::cout << "DiamondTrap " << this->_name << " destructor called" << std::endl;
 }
 
 /*
@@ -61,8 +61,9 @@ DiamondTrap::~DiamondTrap(void) {
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs) {
 
-	std::cout << "DiamondTrap copy assignment operator called" << std::endl;
+	std::cout << "DiamondTrap " << rhs._name << " copy assignment operator called" << std::endl;
     this->_name = rhs._name;
+    ClapTrap::_name = rhs._name + "_clap_name";
     this->_HP = rhs._HP;
     this->_energy = rhs._energy;
     this->_damage = rhs._damage;
@@ -73,11 +74,18 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs) {
  ** MEMBER FUNCTION
  */
 
-void	DiamondTrap::whoAmI(void) const {
+void	DiamondTrap::whoAmI(void){
 
 	std::cout << "DiamondTrap's name is " << this->_name << std::endl;
 	std::cout << "ClapTrap's name is " << ClapTrap::_name << std::endl;
 }
+
+void    DiamondTrap::setName(std::string name) {
+
+    this->_name = name;
+    ClapTrap::_name = name + "_clap_name";
+}
+
 
 void	DiamondTrap::diamondStatus(void) const {
 

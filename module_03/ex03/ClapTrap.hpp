@@ -31,12 +31,14 @@ class ClapTrap {
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 
+        void	        clapStatus(void) const;
+
 		std::string		getName(void) const;
 		unsigned int	getHP(void) const;
 		unsigned int	getEnergy(void) const;
 		unsigned int	getDamage(void) const;
 
-		void			setName(std::string name);
+		void            setName(std::string name);
 		void			setHP(unsigned int hp);
 		void			setEnergy(unsigned int energy);
 		void			setDamage(unsigned int damage);
