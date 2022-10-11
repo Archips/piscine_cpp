@@ -25,7 +25,6 @@ AMateria::AMateria(std::string const & type) {
 AMateria::AMateria(AMateria const &src) {
 
     std::cout << "AMateria copy constructor called" << std::endl;
-    this->_type = src._type;
     *this = src;
 }
 
@@ -49,3 +48,5 @@ AMateria & AMateria::operator=(const AMateria &rhs) {
 		this->_type = rhs._type;
     return (*this);
 }
+
+AMateria use...

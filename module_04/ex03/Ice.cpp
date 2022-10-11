@@ -24,7 +24,7 @@ Ice::Ice(std::string const &name): AMateria(type) {
 Ice::Ice(Ice const &src){
 
     std::cout << "Ice copy constructor called" << std::endl;
-    this->_type = src._type;
+    *this = src;
 }
 
 /*

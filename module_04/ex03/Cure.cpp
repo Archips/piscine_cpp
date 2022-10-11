@@ -24,7 +24,7 @@ Cure::Cure(std::string const &name): AMateria(type) {
 Cure::Cure(Cure const &src){
 
     std::cout << "Cure copy constructor called" << std::endl;
-    this->_type = src._type;
+    *this = src;
 }
 
 /*

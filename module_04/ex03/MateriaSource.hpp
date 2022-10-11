@@ -14,6 +14,7 @@
 # define MATERIASOURCE_HPP
 
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 class MateriaSource: virtual public IMateriaSource{
 
@@ -26,8 +27,12 @@ class MateriaSource: virtual public IMateriaSource{
         MateriaSource & operator=(MateriaSource const &rhs);
 
         virtual ~MateriaSource();
-        virtual void learnMateria(AMateria*);
+        virtual void learnMateria(AMateria* materia);
         virtual AMateria* createMateria(std::string const & type);
+
+    private:
+
+        AMateria    _materiaCopy[4];
 };
 
 #endif

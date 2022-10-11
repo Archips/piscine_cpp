@@ -24,15 +24,7 @@ MateriaSource::MateriaSource(void) {
 MateriaSource::MateriaSource(MateriaSource const &src) {
 
 	std::cout << "MateriaSource copy constructor called" << std::endl;
-}
-
-/*
- ** COPY ASSIGNMENT OPERATOR
- */
-
-MateriaSource &MateriaSource operator=(MateriaSource const &rhs) {
-
-    std::cout << "MateriaSource copy assignment operator called" << std::endl;
+    *this = src;
 }
 
 /*
@@ -45,16 +37,40 @@ MateriaSource::~MateriaSource(void) {
 }
 
 /*
+ ** COPY ASSIGNMENT OPERATOR
+ */
+
+MateriaSource &MateriaSource operator=(MateriaSource const &rhs) {
+
+    std::cout << "MateriaSource copy assignment operator called" << std::endl;
+    if (this != &rhs) {
+        delete this->_materiaCopy;
+        this->_materiaCopy = new AMateria[4];
+        for (int i = 0; i < 4; i ++)
+            this->_materiaCopy[i] = rhs._materiaCopy[i];
+    }
+    return (*this);
+}
+
+/*
  ** MEMBER FUNCTIONS
  */
 
-void	MateriaSource::learnMateria(AMateria *) {
-	
+void	MateriaSource::learnMateria(AMateria* materia) {
 
+    for (int i = 0; i < 4; i ++) {
+        if (this->_materiaCopy[i])
+            this->_materiaCopy[i] = materia;
+        else
+            return;
+    }
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
 
+    for (int i = 0; i < 4; i ++) {
+        if (this->_materiaCopy[i] && this->materiaCopy._)
+    }
 
 }
 

@@ -31,11 +31,7 @@ Character::Character(const std::string name) {
 Character::Character(Character const &src) {
 
     std::cout << "Character copy constructor called" << std::endl;
-    this->_name = src._name;
-    delete this->_inventory;
-    this->_inventory = new AMateria[4];
-    for (int i = 0; i < 4; i ++)
-        this->_inventory[i] = src._inventory[i];
+    *this = src;
 
 }
 
@@ -46,7 +42,10 @@ Character::Character(Character const &src) {
 Character::~Character(void) {
 
     std::cout << "Character destructor called" << std::endl;
-    delete this->_inventory;
+    for (int i = 0; i < 4; i ++) {
+        if (this->_inventory[i])
+            delete this->_inventory[i];
+    }
 }
 
 /*
@@ -58,10 +57,14 @@ Character &Character::operator=(const Character &rhs) {
     std::cout << "Character copy assignment called" << std::endl;
     if (this != &src) {
         this->_name = rhs._name;
-        delete this->_inventory;
-        this->_inventory = new AMateria[4];
-        for (int i = 0; i < 4; i++)
-            this->_inventory[i] = rhs._inventory[i];
+        for (int i = 0; i < 4; i ++) {
+            if (this->_inventory[i])
+                delete this->_inventory[i];
+            if (rhs._inventory[i])
+                this->_inventory[i] = rhs._inventory[i]->clone();
+            else
+                this->_inventory[i] = NULL;
+        }
     }
     return (*this);
 }
@@ -95,5 +98,5 @@ void    Character::unequip(int idx) {
 void    Character::use(int idx, ICharacter &target) {
 
     if (idx >= 0 && idx <= 3 && this->_inventory[idx])
-        AMateria::use(target);
+        this->_inventory[idx]->use(target);
 }
