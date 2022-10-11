@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:49:15 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/07 14:16:44 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:21:03 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ ClapTrap::ClapTrap(std::string name) {
 ClapTrap::ClapTrap(const ClapTrap &src) {
 
 	std::cout << "ClapTrap " << src._name << " copy constructor called" << std::endl;
-	*this = src;
+	this->_name = src._name;
+	this->_HP = src._HP;
+	this->_energy = src._energy;
+	this->_damage = src._damage;
 }
 
 

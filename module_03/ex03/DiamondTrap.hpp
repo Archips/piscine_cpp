@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:49:24 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/07 12:46:39 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:59:23 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-class DiamondTrap : public ScavTrap , public FragTrap {
+class DiamondTrap : virtual public ScavTrap , virtual public FragTrap {
 
 	public:
 

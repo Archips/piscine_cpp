@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/11 13:57:58 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/11 13:57:59 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
 
 /*
@@ -9,11 +21,9 @@ MateriaSource::MateriaSource(void) {
     std::cout << "MateriaSource default constructor called" << std::endl;
 }
 
+MateriaSource::MateriaSource(MateriaSource const &src) {
 
-
-MateriaSource::~MateriaSource(void) {
-
-    std::cout << ""
+	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
 /*
@@ -24,3 +34,28 @@ MateriaSource &MateriaSource operator=(MateriaSource const &rhs) {
 
     std::cout << "MateriaSource copy assignment operator called" << std::endl;
 }
+
+/*
+ ** DESTRUCTOR
+ */
+
+MateriaSource::~MateriaSource(void) {
+
+    std::cout << "MateriaSource destructor called" << std::endl;
+}
+
+/*
+ ** MEMBER FUNCTIONS
+ */
+
+void	MateriaSource::learnMateria(AMateria *) {
+	
+
+}
+
+AMateria *MateriaSource::createMateria(std::string const &type) {
+
+
+}
+
+
