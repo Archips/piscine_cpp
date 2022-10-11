@@ -2,22 +2,25 @@
 # define CURE_HPP
 
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class Cure : virtual public AMateria {
 
 public:
 
-    Cure(void);
+    Cure(std::string const &name);
     Cure(Cure const  &src);
     virtual ~Cure(void);
 
     Cure & operator=(Cure const &rhs);
 
-    virtual std::string const & getName() const;
-    virtual void equip(AMateria* m);
-    virtual void unequip(int idx);
-    virtual void use(int idx, ICharacter& target);
+    std::string const & getType() const; //Returns the materia type
+    virtual AMateria* clone() const;
+    virtual void use(ICharacter& target);
 
+private:
+
+    const std::string _type;
 
 };
 
