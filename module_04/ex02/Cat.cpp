@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:54:05 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:54:06 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:33:11 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ Cat::~Cat(void) {
 Cat &Cat::operator=(const Cat &rhs) {
 
     std::cout << "Cat copy assignment operator called" << std::endl;
-    this->_type = rhs._type;
-    this->_brain->cpyBrain(rhs._brain);
-    return (*this);
+    if (this != &rhs) {
+		this->_type = rhs._type;
+   		this->_brain->cpyBrain(rhs._brain);
+	}
+	return (*this);
 }
 
 /*

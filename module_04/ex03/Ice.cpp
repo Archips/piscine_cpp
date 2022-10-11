@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:46 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:48 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:34:51 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ Ice::~Ice(void) {
 Ice & Ice::operator=(const Ice &rhs) {
 
     std::cout << "Ice copy assignment operator called" << std::endl;
-    this->_type = rhs._type;
+    if (this != &rhs)
+		this->_type = rhs._type;
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:32 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:33 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:34:35 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ Cure::~Cure(void) {
 Cure & Cure::operator=(const Cure &rhs) {
 
     std::cout << "Cure copy assignment operator called" << std::endl;
-    this->_type = rhs._type;
+    if (this != &rhs)
+		this->_type = rhs._type;
     return (*this);
 }
 

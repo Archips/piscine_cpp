@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:07 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:08 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:34:19 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ AMateria::~AMateria(void) {
 AMateria & AMateria::operator=(const AMateria &rhs) {
 
     std::cout << "AMateria copy assignment operator called" << std::endl;
-    this->_type = rhs._type;
+    if (this != &rhs)
+		this->_type = rhs._type;
     return (*this);
 }

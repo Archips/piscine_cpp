@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:55:36 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:55:37 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:33:58 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ WrongCat::~WrongCat(void) {
 WrongCat &WrongCat::operator=(const WrongCat &rhs) {
 
     std::cout << "WrongCat copy assignment operator called" << std::endl;
-    this->_type = rhs._type;
+    if (this != &rhs)
+		this->_type = rhs._type;
     return (*this);
 }
 
