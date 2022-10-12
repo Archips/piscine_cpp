@@ -1,28 +1,52 @@
-.PHONY : all re clean fclean
+NAME		:= animal
 
-SRC = main.cpp \
-	  Animal.cpp \
-	  Cat.cpp \
-	  Dog.cpp \
-	  WrongAnimal.cpp \
-	  WrongCat.cpp \
-	  Brain.cpp
-		
-CXX = c++
-NAME = animal
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-RM = rm -f
-OBJ = $(SRC:.cpp=.o)
+SRC_DIR		:= src
+SRCS		:= \
+	main.cpp \
+	Animal.cpp \
+	Brain.cpp \
+	Cat.cpp \
+	Dog.cpp \
+	WrongAnimal.cpp \
+	WrongCat.cpp
 
-all : $(NAME)
+SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
+BUILD_DIR	:= .build
+OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+DEPS		:= $(OBJS:.o:.d)
 
-$(NAME) : $(OBJ)
-	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+CXX			:= c++
+CXXFLAGS	:= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	:= -MMD -I include
 
-clean : 
-	$(RM) $(OBJ)
+RM			:= rm -f
+MAKEFLAGS	+= --no-print-directory
+DIR_DUP		= mkdir -p $(@D)
 
-fclean : clean
-	$(RM) $(NAME)
+all: $(NAME)
 
-re : fclean all
+$(NAME): $(OBJS)
+	@$(CXX) $(OBJS) -o $(NAME)
+	$(info CREATED $(NAME))
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@$(DIR_DUP)
+	@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(info CREATED $@)
+
+-include $(DEPS)
+
+clean:
+	@$(RM) $(OBJS) $(DEPS)
+	$(info REMOVED OBJS & DEPS)
+
+fclean: clean
+	@$(RM) $(NAME)
+	$(info REMOVED $(NAME))
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY: clean fclean re
+.SILENT:

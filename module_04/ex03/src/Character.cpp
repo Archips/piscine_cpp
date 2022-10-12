@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:23 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:25 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:14:40 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 Character::Character(void) {
 
     std::cout << "Character default constructor called" << std::endl;
+	this->_name = "stranger";
 }
 
 Character::Character(const std::string name) {
@@ -31,8 +32,17 @@ Character::Character(const std::string name) {
 Character::Character(Character const &src) {
 
     std::cout << "Character copy constructor called" << std::endl;
-    *this = src;
-
+	
+	this = src._name;
+	for (int i = 0; i < 4; i ++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (src._inventory[i])
+			this->_inventory[i]->clone(src._inventory[i]);
+		else
+			this->_inventory[i] = NULL;
+	}
 }
 
 /*
@@ -92,7 +102,7 @@ void    Character::equip(AMateria *m) {
 void    Character::unequip(int idx) {
 
     if (idx >= 0 && idx <= 3 && this->_inventory[idx])
-        this->_inventory[idx] = nullptr;
+        this->_inventory[idx] = NULL;
 }
 
 void    Character::use(int idx, ICharacter &target) {

@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:28 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:29 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:31:01 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include "ICharacter.hpp"
 # include "AMateria.hpp"
 
 class Character : virtual public ICharacter {

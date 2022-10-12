@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:46 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 18:34:51 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:55:38 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
  ** CONSTRUCTORS
  */
 
-Ice::Ice(std::string const &name): AMateria(type) {
+Ice::Ice(void): AMateria("ice") {
 
     std::cout << "Ice default constructor called" << std::endl;
+	this->_type = "ice";
 }
 
 Ice::Ice(Ice const &src){

@@ -6,21 +6,20 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:39 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:41 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:31:21 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include "ICharacter.hpp"
 # include "AMateria.hpp"
 
-class Cure : virtual public AMateria {
+class Cure : public AMateria {
 
 public:
 
-    Cure(std::string const &name);
+    Cure(void);
     Cure(Cure const  &src);
     virtual ~Cure(void);
 

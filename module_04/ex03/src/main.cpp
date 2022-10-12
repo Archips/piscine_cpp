@@ -6,9 +6,16 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:58:23 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:58:24 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:13:11 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "ICharacter.hpp"
+#include "MateriaSource.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 int main(void)
 {

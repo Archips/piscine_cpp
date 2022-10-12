@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:54:27 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:54:28 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/12 14:19:03 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main(void) {
 
-    /*{
+    {
         const Animal *animals[10];
 
         for (int i = 0; i < 10; i ++) {
@@ -69,9 +69,9 @@ int main(void) {
         std::cout << std::endl << "The copy of Leonard is thinking : " << std::endl;
         for (int i = 0; i < 100; i++)
             std::cout << "[ " << i << " ]: " << otherCat.getIdea(i) << std::endl;
-    }*/
+    }
 
-    Animal test;
+    /* Animal test; */
 
     return (0);
 
