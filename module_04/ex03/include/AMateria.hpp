@@ -21,6 +21,7 @@ class AMateria {
 
     public:
 
+        AMateria(void);
         AMateria(std::string const & type);
         AMateria(AMateria const &src);
         virtual ~AMateria(void);
@@ -33,7 +34,7 @@ class AMateria {
 
     protected:
 
-        const   std::string _type;
+        std::string _type;
 };
 
 #endif

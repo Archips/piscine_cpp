@@ -53,17 +53,17 @@ Ice & Ice::operator=(const Ice &rhs) {
  ** MEMBER FUNCTIONS
  */
 
-std::string const &getType() const {
+std::string const &Ice::getType() const {
 
     return (this->_type);
 }
 
-AMateria &Ice::clone(void) {
-    AMateria &ptr = new Ice(this->_type);
-    return (ptr);
+AMateria *Ice::clone(void) const {
+
+    return (new Ice());
 }
 
 void    Ice::use(ICharacter &target) {
 
-    std::cout << "* shoots an ice bolt at " << target << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

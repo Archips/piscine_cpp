@@ -35,8 +35,8 @@ class Character : virtual public ICharacter {
 
     private:
 
-        AMateria            *_inventory[4];
-        const std::string   _name;
+        AMateria        *_inventory[4];
+        std::string     _name;
 };
 
 #endif

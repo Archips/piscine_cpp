@@ -23,7 +23,7 @@ public:
 	Ice(Ice const &src);
     virtual ~Ice(void);
 
-    Ice & operator=(Cure const &rhs);
+    Ice & operator=(Ice const &rhs);
 
     std::string const & getType() const; //Returns the materia type
     virtual AMateria* clone() const;
@@ -31,7 +31,7 @@ public:
 
 private:
 
-    const std::string _type;
+    std::string _type;
 
 };
 

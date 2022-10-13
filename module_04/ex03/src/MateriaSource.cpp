@@ -40,14 +40,18 @@ MateriaSource::~MateriaSource(void) {
  ** COPY ASSIGNMENT OPERATOR
  */
 
-MateriaSource &MateriaSource operator=(MateriaSource const &rhs) {
+MateriaSource &MateriaSource::operator=(MateriaSource const &rhs) {
 
     std::cout << "MateriaSource copy assignment operator called" << std::endl;
     if (this != &rhs) {
-        delete this->_materiaCopy;
-        this->_materiaCopy = new AMateria[4];
-        for (int i = 0; i < 4; i ++)
-            this->_materiaCopy[i] = rhs._materiaCopy[i];
+        for (int i = 0; i < 4; i ++) {
+            if (this->_materiaCopy[i])
+                delete this->_materiaCopy[i];
+            if (rhs._materiaCopy[i])
+                this->_materiaCopy[i] = rhs._materiaCopy[i];
+            else
+                this->_materiaCopy[i] = NULL;
+        }
     }
     return (*this);
 }
@@ -59,18 +63,20 @@ MateriaSource &MateriaSource operator=(MateriaSource const &rhs) {
 void	MateriaSource::learnMateria(AMateria* materia) {
 
     for (int i = 0; i < 4; i ++) {
-        if (this->_materiaCopy[i])
+        if (!this->_materiaCopy[i]) {
             this->_materiaCopy[i] = materia;
-        else
-            return;
+            return ;
+        }
     }
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
 
     for (int i = 0; i < 4; i ++) {
-        if (this->_materiaCopy[i] && this->materiaCopy._)
+        if (this->_materiaCopy[i] && this->_materiaCopy[i]->getType() == type)
+            return (this->_materiaCopy[i]->clone());
     }
+    return (NULL);
 
 }
 

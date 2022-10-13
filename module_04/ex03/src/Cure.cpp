@@ -53,12 +53,12 @@ Cure & Cure::operator=(const Cure &rhs) {
  ** MEMBER FUNCTIONS
  */
 
-std::string const &getType() const {
+std::string const &Cure::getType() const {
 
     return (this->_type);
 }
 
-AMateria *Cure::clone(void) {
+AMateria *Cure::clone(void) const {
 
     return (new Cure());
 }
