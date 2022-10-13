@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:57:58 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 13:57:59 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:52:54 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 MateriaSource::MateriaSource(void) {
 
     std::cout << "MateriaSource default constructor called" << std::endl;
+	initCopy(this->_materiaCopy);
 }
 
 MateriaSource::MateriaSource(MateriaSource const &src) {
@@ -34,6 +35,10 @@ MateriaSource::MateriaSource(MateriaSource const &src) {
 MateriaSource::~MateriaSource(void) {
 
     std::cout << "MateriaSource destructor called" << std::endl;
+	
+	for (int i = 0; i < 4; i++)
+		if (this->_materiaCopy[i])
+			delete this->_materiaCopy[i];
 }
 
 /*
@@ -80,4 +85,8 @@ AMateria *MateriaSource::createMateria(std::string const &type) {
 
 }
 
+void	MateriaSource::initCopy(AMateria **materiaCopy) {
 
+	for (int i = 0; i < 4; i ++)
+		materiaCopy[i] = NULL;
+}

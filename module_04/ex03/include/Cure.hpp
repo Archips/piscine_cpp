@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:39 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/12 17:31:21 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:33:16 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 
     Cure & operator=(Cure const &rhs);
 
-    std::string const & getType() const; //Returns the materia type
+    std::string const & getType() const;
     virtual AMateria* clone() const;
     virtual void use(ICharacter& target);
 

@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:23 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/12 17:14:40 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:55:46 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ Character::Character(void) {
 
     std::cout << "Character default constructor called" << std::endl;
 	this->_name = "stranger";
+	initInventory(this->_inventory);
 }
 
 Character::Character(const std::string name) {
 
     std::cout << "Character " << name << " constructor called" << std::endl;
     this->_name = name;
+	initInventory(this->_inventory);
 }
 
 Character::Character(Character const &src) {
@@ -109,4 +111,10 @@ void    Character::use(int idx, ICharacter &target) {
 
     if (idx >= 0 && idx <= 3 && this->_inventory[idx])
         this->_inventory[idx]->use(target);
+}
+
+void	Character::initInventory(AMateria **inventory) {
+
+	for (int i = 0; i < 4; i ++)
+		inventory[i] = NULL;
 }

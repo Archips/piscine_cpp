@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:58:03 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/12 17:31:47 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:53:12 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ class MateriaSource: public IMateriaSource {
         virtual ~MateriaSource(void);
 
         MateriaSource & operator=(MateriaSource const &rhs);
-
+		
         virtual void learnMateria(AMateria* materia);
         virtual AMateria* createMateria(std::string const & type);
+
+		void	initCopy(AMateria **materiaCopy);
 
     private:
 

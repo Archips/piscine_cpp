@@ -18,7 +18,7 @@ CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror -std=c++98
 CPPFLAGS	:= -MMD -I include
 
-RM			:= rm -f
+RM			:= rm -rf
 MAKEFLAGS	+= --no-print-directory
 DIR_DUP		= mkdir -p $(@D)
 
@@ -36,7 +36,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 -include $(DEPS)
 
 clean:
-	@$(RM) $(OBJS) $(DEPS)
+	@$(RM) $(OBJS) $(BUILD_DIR)
 	$(info REMOVED OBJS & DEPS)
 
 fclean: clean

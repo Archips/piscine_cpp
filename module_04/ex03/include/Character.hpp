@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:28 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/12 17:31:01 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:54:21 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class Character : virtual public ICharacter {
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
+
+		void	initInventory(AMateria **inventory);
 
     private:
 
