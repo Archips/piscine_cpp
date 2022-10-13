@@ -7,8 +7,6 @@ SRCS		:= \
 	Character.cpp \
 	Cure.cpp \
 	Ice.cpp \
-	ICharacter.cpp \
-	IMateriaSource.cpp \
 	MateriaSource.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
