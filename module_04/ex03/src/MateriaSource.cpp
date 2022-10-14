@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:57:58 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/13 14:52:54 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:40:13 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ MateriaSource::MateriaSource(void) {
 MateriaSource::MateriaSource(MateriaSource const &src) {
 
 	std::cout << "MateriaSource copy constructor called" << std::endl;
-    *this = src;
+    for (int i = 0; i < 4; i ++) {
+            if (this->_materiaCopy[i])
+                delete this->_materiaCopy[i];
+            if (src._materiaCopy[i])
+                this->_materiaCopy[i] = src._materiaCopy[i];
+            else
+                this->_materiaCopy[i] = NULL;
+    }
 }
 
 /*

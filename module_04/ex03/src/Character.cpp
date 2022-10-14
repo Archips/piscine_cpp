@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:23 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/13 14:55:46 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:30:34 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Character::Character(const std::string name) {
 Character::Character(Character const &src) {
 
     std::cout << "Character copy constructor called" << std::endl;
-	
+	initInventory(this->_inventory);
 	this->_name = src._name;
 	for (int i = 0; i < 4; i ++)
 	{
@@ -99,6 +99,7 @@ void    Character::equip(AMateria *m) {
         }
     }
     std::cout << "Couldn't equip " << this->_name << ". Inventory is full" << std::endl;
+	delete (m);
 }
 
 void    Character::unequip(int idx) {
@@ -117,4 +118,11 @@ void	Character::initInventory(AMateria **inventory) {
 
 	for (int i = 0; i < 4; i ++)
 		inventory[i] = NULL;
+}
+
+AMateria	*Character::getInventory(unsigned int index) const {
+
+	if (index >= 0 && index < 4)
+		return (this->_inventory[index]);
+	return (NULL);
 }

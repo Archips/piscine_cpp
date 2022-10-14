@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:51:16 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 18:30:44 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:10:13 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ Brain::Brain(Brain const &src) {
 
     std::cout << "Brain copy constructor called" << std::endl;
     for (int i = 0; i < 100; i ++)
-        this->_ideas[i] = src._ideas[i];
-    *this = src;
+        this->_ideas[i] = src.getIdea(i);
 }
 
 /*
@@ -47,7 +46,7 @@ Brain &Brain::operator=(const Brain &rhs) {
     std::cout << "Brain copy assignment operator called" << std::endl;
     if (this != &rhs)
 		for (int i = 0; i < 100; i ++)
-        	this->_ideas[i] = rhs._ideas[i];
+        	this->_ideas[i] = rhs.getIdea(i);
     return (*this);
 }
 
@@ -63,10 +62,13 @@ void    Brain::cpyBrain(Brain *brain) {
 
 void    Brain::setIdea(std::string idea, unsigned int index) {
 
-    this->_ideas[index] = idea;
+	if (index >= 0 && index < 100)
+    	this->_ideas[index] = idea;
 }
 
 std::string Brain::getIdea(unsigned int index) const {
 
-    return (this->_ideas[index]);
+	if (index >= 0 && index < 100)
+    	return (this->_ideas[index]);
+	return (NULL);
 }

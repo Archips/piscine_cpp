@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 13:54:24 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/12 14:18:34 by athirion         ###   ########.fr       */
+/*   Created: 2022/10/11 13:51:38 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/14 10:15:51 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Dog : public Animal {
 
         void            setIdea(std::string idea, unsigned int index);
         std::string     getIdea(unsigned int index) const;
-        virtual void    makeSound(void) const;
+		virtual void    makeSound(void) const;
 
     private:
 

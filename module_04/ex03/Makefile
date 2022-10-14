@@ -15,7 +15,7 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o:.d)
 
 CXX			:= c++
-CXXFLAGS	:= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	:= -Wall -Wextra -Werror -g -std=c++98
 CPPFLAGS	:= -MMD -I include
 
 RM			:= rm -rf
@@ -25,12 +25,12 @@ DIR_DUP		= mkdir -p $(@D)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(OBJS) -o $(NAME)
+	$(CXX) $(OBJS) -o $(NAME)
 	$(info CREATED $(NAME))
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@$(DIR_DUP)
-	@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
 -include $(DEPS)
@@ -48,4 +48,4 @@ re:
 	$(MAKE) all
 
 .PHONY: clean fclean re
-.SILENT:
+# .SILENT:

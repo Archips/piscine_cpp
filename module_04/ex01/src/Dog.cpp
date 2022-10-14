@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:51:33 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 18:31:35 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:15:36 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,15 @@ Dog &Dog::operator=(const Dog &rhs) {
 
 void        Dog::setIdea(std::string idea, unsigned int index) {
 
-    this->_brain->setIdea(idea, index);
+	if (index >= 0 && index < 100)
+    	this->_brain->setIdea(idea, index);
 }
 
 std::string Dog::getIdea(unsigned int index) const {
 
-    return (this->_brain->getIdea(index));
+	if (index >= 0 && index < 100)
+    	return (this->_brain->getIdea(index));
+	return (NULL);
 }
 
 void        Dog::makeSound(void) const{

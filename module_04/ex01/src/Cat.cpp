@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:51:25 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 18:31:14 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:15:06 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,16 @@ Cat &Cat::operator=(const Cat &rhs) {
  */
 
 void        Cat::setIdea(std::string idea, unsigned int index) {
-
-    this->_brain->setIdea(idea, index);
+	
+	if (index >= 0 && index < 100)
+    	this->_brain->setIdea(idea, index);
 }
 
 std::string Cat::getIdea(unsigned int index) const {
 
-    return (this->_brain->getIdea(index));
+	if (index >= 0 && index < 100)
+    	return (this->_brain->getIdea(index));
+	return (NULL);
 }
 
 void        Cat::makeSound(void) const{

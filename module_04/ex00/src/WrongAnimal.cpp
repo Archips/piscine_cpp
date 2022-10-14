@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:49:58 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/11 18:17:53 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/14 09:24:23 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 WrongAnimal::WrongAnimal(void) {
 
     std::cout << "WrongAnimal default constructor called" << std::endl;
+	this->_type = "Wrong animal";
 }
 
 WrongAnimal::WrongAnimal(std::string type) {

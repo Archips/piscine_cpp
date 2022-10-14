@@ -26,12 +26,12 @@ DIR_DUP		= mkdir -p $(@D)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(OBJS) -o $(NAME)
+	$(CXX) $(OBJS) -o $(NAME)
 	$(info CREATED $(NAME))
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@$(DIR_DUP)
-	@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
 -include $(DEPS)
@@ -49,4 +49,4 @@ re:
 	$(MAKE) all
 
 .PHONY: clean fclean re
-.SILENT:
+# .SILENT:
