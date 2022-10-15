@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:32:02 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/15 15:19:39 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:20:43 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,13 @@ class Form {
 
 		Form	&operator=(const Form &rhs);
 
+		const std::string	getName(void);
+		bool				getSigned(void);
+		const std::int		getSignedGrade(void);
+		const std::int		getExecGrade(void);
 
-
+		void				beSigned(Bureaucrat &bureaucrat);
+		void				signForm(void);
 
 	private :
 

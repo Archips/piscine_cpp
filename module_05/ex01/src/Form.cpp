@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:02:20 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/15 16:14:52 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:25:34 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,12 @@ Form	&Form::operator=(const Form &rhs) {
 /*
  ** MEMBER FUNCTIONS
  */
+
+std::ostream &operator<<(std::ostream & o, Form const &rhs) {
+
+	o << rhs.getName() << "'s form informations :" << std::endl \
+		<< "Signed ? " << rhs.getSigned() << std::endl \
+		<< "Signed grade: " << rhs.getSignedGrade() << std::endl \
+		<< "Exec grade: " << rhs.getExecGrade() << std::endl;
+	return (o);
+}
