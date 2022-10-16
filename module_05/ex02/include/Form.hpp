@@ -27,7 +27,7 @@ class Form {
 		Form(void);
 		Form(std::string name, int signedGrade, int execGrade);
 		Form(const Form &src);
-		~Form(void);
+		virtual ~Form(void);
 
 		Form	&operator=(const Form &rhs);
 
@@ -37,6 +37,7 @@ class Form {
 		int         getExecGrade(void) const;
 
 		void        beSigned(const Bureaucrat &bureaucrat);
+        void        execute(Bureaucrat const & executor) const = 0;
 
 	private :
 

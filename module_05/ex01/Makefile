@@ -1,4 +1,4 @@
-NAME		:= animal
+NAME		:= form
 
 SRC_DIR		:= src
 SRCS		:= \
