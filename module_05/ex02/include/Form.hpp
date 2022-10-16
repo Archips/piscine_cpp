@@ -61,6 +61,14 @@ class Form {
 				return ("The grade is too low\n");
 			}
 		};
+
+        class UnsignedForm : public std::exception {
+
+            const char* what() const throw() {
+
+                return ("The form is unsigned, execution couldn't be proceeded\n");
+            }
+        };
 };
 
 std::ostream	& operator<<(std::ostream & o, Form const & rhs);
