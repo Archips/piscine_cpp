@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "../include/Form.hpp"
 
 /*
  ** CONSTRUCTORS
@@ -21,8 +21,8 @@ Form::Form(void): _name("Undefined"), _signed(false), _signedGrade(150), _execGr
 	std::cout << "Form default constructor called" << std::endl;
 }
 
-Form::Form(std::string name, bool signed, int signedGrade, int execGrade) /
-	_name(name), _signed(signed), _signedGrade(signedGrade), _execGrade(execGrade) {
+Form::Form(std::string name, bool s, int signedGrade, int execGrade):
+    _name(name), _signed(s), _signedGrade(signedGrade), _execGrade(execGrade) {
 
 	std::cout << "Form of " << name << " constructor called" << std::endl;
 	if (signedGrade < 1 || execGrade < 1)
@@ -53,7 +53,7 @@ Form::~Form(void) {
 Form	&Form::operator=(const Form &rhs) {
 
 	std::cout << "Form copy assignment operator called" << std::endl;
-	if (!this != &rhs)
+	if (this != &rhs)
 		this->_signed = rhs._signed;
 	return (*this);
 }
@@ -62,9 +62,29 @@ Form	&Form::operator=(const Form &rhs) {
  ** MEMBER FUNCTIONS
  */
 
+std::string Form::getName(void) const {
+
+    return(this->_name);
+}
+
+bool        Form::getSigned(void) const {
+
+    return (this->_signed);
+}
+
+int         Form:getSignedGrade(void) const {
+
+    return (this->_signedGrade);
+}
+
+int         Form::getExecGrade() const {
+
+    return (this->_execGrade);
+}
+
 std::ostream &operator<<(std::ostream & o, Form const &rhs) {
 
-	o << rhs.getName() << "'s form informations :" << std::endl \
+	o << rhs.getName() << "'s form information :" << std::endl \
 		<< "Signed ? " << rhs.getSigned() << std::endl \
 		<< "Signed grade: " << rhs.getSignedGrade() << std::endl \
 		<< "Exec grade: " << rhs.getExecGrade() << std::endl;

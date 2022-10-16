@@ -22,16 +22,16 @@ class Form {
 	public :
 	
 		Form(void);
-		Form(std::string name, bool signed, int signedGrade, int execGrade);
+		Form(std::string name, bool s, int signedGrade, int execGrade);
 		Form(const Form &src);
 		~Form(void);
 
 		Form	&operator=(const Form &rhs);
 
-		const std::string	getName(void);
-		bool				getSigned(void);
-		const std::int		getSignedGrade(void);
-		const std::int		getExecGrade(void);
+		const std::string	getName(void) const;
+		bool				getSigned(void) const;
+		const int	    	getSignedGrade(void) const;
+		const int   		getExecGrade(void) const;
 
 		void				beSigned(Bureaucrat &bureaucrat);
 		void				signForm(void);
