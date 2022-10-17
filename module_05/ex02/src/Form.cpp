@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:02:20 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/15 17:25:34 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:31:35 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,14 @@ void        Form::beSigned(const Bureaucrat &bureaucrat) {
         this->_signed = true;
     else
         throw Form::GradeTooLowException();
+}
+
+void		Form::checkForm(Bureaucrat const & executor) const {
+
+	if (!this->_signed)
+		throw Form::UnsignedForm();
+	if (executor.getGrade() > this->_execGrade || executor.getGrade() > this->_signedGrade)
+		throw Form::GradeTooLowException();
 }
 
 /*

@@ -1,13 +1,13 @@
-NAME		:= animal
+NAME		:= form
 
 SRC_DIR		:= src
 SRCS		:= \
 	main.cpp \
-	Animal.cpp \
-	Cat.cpp \
-	Dog.cpp \
-	WrongAnimal.cpp \
-	WrongCat.cpp
+	Bureaucrat.cpp \
+	Form.cpp \
+	ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp \
+	PresidentialPardonForm.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 BUILD_DIR	:= .build

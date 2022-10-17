@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:32:02 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/15 17:20:43 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:26:09 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ class Form {
 
 		Form	&operator=(const Form &rhs);
 
-		std::string	getName(void) const;
-		bool		getSigned(void) const;
-		int         getSignedGrade(void) const;
-		int         getExecGrade(void) const;
+		std::string		getName(void) const;
+		bool			getSigned(void) const;
+		int         	getSignedGrade(void) const;
+		int         	getExecGrade(void) const;
 
-		void        beSigned(const Bureaucrat &bureaucrat);
-        void        execute(Bureaucrat const & executor) const = 0;
+		void        	beSigned(const Bureaucrat &bureaucrat);
+        virtual void	execute(Bureaucrat const & executor) const = 0;
+		void			checkForm(Bureaucrat const & executor) const;
 
-	private :
+	protected :
 
 		const std::string	_name;
 		bool				_signed;
@@ -69,6 +70,14 @@ class Form {
                 return ("The form is unsigned, execution couldn't be proceeded\n");
             }
         };
+
+		class ExecutionError : public std::exception {
+
+			const char* what() const throw() {
+
+				return ("Execution error\n");
+			}
+		};
 };
 
 std::ostream	& operator<<(std::ostream & o, Form const & rhs);
