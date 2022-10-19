@@ -43,7 +43,7 @@ class Bureaucrat {
 			
 			const char* what() const throw() {
 		
-				return ("The grade is too low\n");
+				return ("The grade is too low");
 			}
 		};
 
@@ -51,7 +51,7 @@ class Bureaucrat {
 
 			const char* what() const throw() {
 			
-				return ("The grade is too high\n");
+				return ("The grade is too high");
 			}
 		};
 };

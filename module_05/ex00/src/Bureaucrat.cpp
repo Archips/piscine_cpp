@@ -77,18 +77,16 @@ int			Bureaucrat::getGrade(void) const {
 
 void		Bureaucrat::incrementGrade(void) {
 
-	if (this->_grade == 1)
+	if (this->_grade <= 1)
 		throw Bureaucrat::GradeTooHighException();
-	else
-		this->_grade --;
+    this->_grade --;
 }
 
 void		Bureaucrat::decrementGrade(void) {
 
-	if (this->_grade == 150)
+	if (this->_grade >= 150)
 		throw Bureaucrat::GradeTooLowException();
-	else
-		this->_grade ++;
+    this->_grade ++;
 }
 
 /*

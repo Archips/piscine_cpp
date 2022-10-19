@@ -31,7 +31,7 @@ Form::Form(std::string name, int signedGrade, int execGrade):
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form &src): _name(src._name), _signedGrade(src._signedGrade), _execGrade(src._execGrade) {
+Form::Form(const Form &src): _name(src._name), _signed(src._signed), _signedGrade(src._signedGrade), _execGrade(src._execGrade) {
 
 	std::cout << "Form copy constructor called" << std::endl;
 }

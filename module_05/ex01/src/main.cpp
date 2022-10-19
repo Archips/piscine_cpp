@@ -14,17 +14,62 @@
 
 int main(void) {
 
-	try {
-		
-		Bureaucrat archi("archi", 1);
-		std::cout << archi << std::endl;
-		archi.incrementGrade();
-	
-	} catch (const std::exception &e) {
-	
-		std::cout << "Error with archi: " << e.what() << std::endl;
-	}
+    /*
+     ** EXCEPTIONS TESTS
+     */
 
-	
-	return (0);
+    std::cout << "<<<<< EXCEPTIONS TESTS >>>>>" << std::endl;
+
+    try {
+        Form form("3MMC", 70, 58);
+        //Form form("3MMC", -436587, 156);
+        //Form form("3MMC", 241, 58);
+        std::cout << form;
+        //Bureaucrat archi("archi", -345);
+        //Bureaucrat archi("archi", 45);
+        Bureaucrat archi("archi", 73);
+        //Bureaucrat archi("archi", 0);
+        //Bureaucrat archi("archi", 150);
+        //Bureaucrat archi("archi", 2);
+        //Bureaucrat archi("archi", 2147483649);
+        //Bureaucrat archi("archi", -2147483649);
+        std::cout << archi;
+        archi.incrementGrade();
+        std::cout << archi;
+        archi.decrementGrade();
+        std::cout << archi;
+        archi.incrementGrade();
+        std::cout << archi;
+        archi.incrementGrade();
+        std::cout << archi;
+        form.beSigned(archi);
+        std::cout << form;
+        archi.signedForm(form);
+
+
+    } catch (const std::exception &e) {
+
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    /*
+     ** COPY TESTS
+     */
+
+    std::cout << std::endl << ">>>>> COPY TESTS <<<<<" << std::endl;
+
+    Bureaucrat archi("Archi", 50);
+    std::cout << archi;
+    Bureaucrat archibad(archi);
+    std::cout << archibad;
+    Form form("3mmc", 100, 90);
+    std::cout << form;
+    form.beSigned(archibad);
+    std::cout << form;
+    Form formV2(form);
+    std::cout << formV2;
+    formV2.beSigned(archi);
+    archi.signedForm(formV2);
+
+    return (0);
 }
