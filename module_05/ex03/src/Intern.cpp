@@ -64,5 +64,6 @@ Form    *Intern::makeForm(std::string form, std::string target) {
             return (formPtr[i](target));
         }
     }
-    throw Intern::InvalidName();
+    std::cout << "Couldn't create the form: invalid name" << std::endl;
+    return (NULL);
 }

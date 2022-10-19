@@ -19,41 +19,66 @@
 
 int main(void) {
 
-    {
-        Intern someRandomIntern;
-        Form* rrf;
-        try {
-            rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-            std::cout << *rrf << std::endl;
-            delete rrf;
-        }
-        catch (const std::exception &e) {
-            std::cout << "error : " << e.what() << std::endl;
-        }
-        std::cout << *rrf << std::endl;
-    }
+    Bureaucrat archi("archi", 2);
+    //Bureaucrat archi("archi", 50);
+    //Bureaucrat archi("archi", 149);
+
+    std::cout << std::endl << "-----------------------------------" << std::endl;
 
     {
         Intern someRandomIntern;
         Form* rrf;
-        try {
-            rrf = someRandomIntern.makeForm("robotomy form", "Bender");
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        if (rrf) {
+            std::cout << *rrf << std::endl;
+            archi.signForm(*rrf);
+            archi.executeForm(*rrf);
+            delete rrf;
+        }
+    }
+
+    std::cout << std::endl << "-----------------------------------" << std::endl;
+
+    {
+        Intern someRandomIntern;
+        Form* rrf;
+
+        rrf = someRandomIntern.makeForm("wrong name", "Bender");
+        if (rrf) {
             std::cout << *rrf << std::endl;
             delete rrf;
         }
-        catch (const std::exception &e) {
-            std::cout << "error : " << e.what() << std::endl;
-        }
-
     }
 
-	Bureaucrat		bob("bob", 2);
-	Bureaucrat		bib("bib", 45);
-	Bureaucrat		bab("bab", 145);
+    std::cout << std::endl << "-----------------------------------" << std::endl;
 
-    std::cout << std::endl << bob << std::endl;
-    std::cout << std::endl << bib << std::endl;
-    std::cout << std::endl << bab << std::endl;
+    {
+        Intern someRandomIntern;
+        Form* rrf;
+        rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+        if (rrf) {
+            std::cout << *rrf << std::endl;
+            archi.signForm(*rrf);
+            archi.executeForm(*rrf);
+            delete rrf;
+        }
+    }
+
+    std::cout << std::endl << "-----------------------------------" << std::endl;
+
+    {
+        Intern someRandomIntern;
+        Form* rrf;
+        rrf = someRandomIntern.makeForm("president pardon", "Bender");
+        if (rrf) {
+            std::cout << *rrf << std::endl;
+            archi.signForm(*rrf);
+            archi.executeForm(*rrf);
+            delete rrf;
+        }
+    }
+
+    std::cout << std::endl << "-----------------------------------" << std::endl;
 
 	return (0);
 }

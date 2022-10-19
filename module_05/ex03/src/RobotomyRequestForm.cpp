@@ -56,24 +56,26 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
  ** MEMBER FUNCTIONS
  */
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+int RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 
 	try {
 		checkForm(executor);
 		executeRobotomy();
-        std::cout << executor.getName() << " executed " << this->_name << " form" << std::endl;
+        return (1);
 	}
 	catch (const std::exception &e) {
-		std::cout << executor.getName() << " could not execute " << this->_name << " form: " << e.what() << std::endl;
+        std::cout << this->_name << " form couldn't be executed: " << e.what() << std::endl;
 	}
+    return (0);
 }
 
 void	RobotomyRequestForm::executeRobotomy(void) const {
 
+    static int time = rand();
+    time ++;
 	std::cout << "**** Drilling noises ****" << std::endl;
-	if (rand() % 2 == 0) {
+	if (time % 2 == 0)
 		std::cout << this->_name << " has been robotomized" << std::endl;
-	}
     else
         throw RobotomyRequestForm::RobotomyError();
 }

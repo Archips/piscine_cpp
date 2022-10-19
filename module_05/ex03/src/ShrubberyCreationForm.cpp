@@ -60,18 +60,19 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
  ** MEMBER FUNCTIONS
  */
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 
 	try {
 
         checkForm(executor);
         executeShrubbery();
-        std::cout << executor.getName() << " executed " << this->_name << " form" << std::endl;
+        return (1);
     }
 	catch (const std::exception &e) {
-		
-		std::cout << executor.getName() << " could not execute " << this->_name << " form: " << e.what() << std::endl;
+
+        std::cout << this->_name << " form couldn't be executed: " << e.what() << std::endl;
 	}
+    return (0);
 }
 
 void		ShrubberyCreationForm::executeShrubbery(void) const {

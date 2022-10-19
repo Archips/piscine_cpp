@@ -41,7 +41,7 @@ clean:
 	$(info REMOVED OBJS & DEPS)
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) *_shrubbery
 	$(info REMOVED $(NAME))
 
 re:

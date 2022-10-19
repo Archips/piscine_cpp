@@ -57,15 +57,16 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
  ** MEMBER FUNCTIONS
  */
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+int	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 
 	try {
 		checkForm(executor);
 		std::cout << "Message for " << this->_name << ": \"You've been pardoned by Zaphod Beeblebrox" << std::endl;
-        std::cout << executor.getName() << " executed " << this->_name << " form" << std::endl;
+        return (1);
 	}
 	catch (const std::exception &e) {
 
-		std::cout << executor.getName() << " could not execute " << this->_name << " form: " << e.what() << std::endl;
+		std::cout << this->_name << " form couldn't be executed: " << e.what() << std::endl;
 	}
+    return (0);
 }

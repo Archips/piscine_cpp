@@ -55,6 +55,9 @@ int main(void) {
     Bureaucrat archibad(archi);
     //archibad = archi;
     std::cout << archibad;
+    Bureaucrat archips;
+    archips = archi;
+    std::cout << archips;
 	
 	return (0);
 }

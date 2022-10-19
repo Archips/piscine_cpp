@@ -37,7 +37,7 @@ class Form {
 		int         	getExecGrade(void) const;
 
 		void        	beSigned(const Bureaucrat &bureaucrat);
-        virtual void	execute(Bureaucrat const & executor) const = 0;
+        virtual int     execute(Bureaucrat const & executor) const = 0;
 		void			checkForm(Bureaucrat const & executor) const;
 
 	protected :
@@ -66,7 +66,7 @@ class Form {
 
             const char* what() const throw() {
 
-                return ("The form is unsigned, execution couldn't be proceeded (form)");
+                return ("The form is unsigned");
             }
         };
 

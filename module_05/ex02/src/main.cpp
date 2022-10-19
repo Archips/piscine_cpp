@@ -18,81 +18,67 @@
 
 int main(void) {
 
-	ShrubberyCreationForm	f("shrubbery");
-	RobotomyRequestForm	r("robot");
-	PresidentialPardonForm	p("random");
-	Bureaucrat		bob("bob", 2    );
-	Bureaucrat		bib("bib", 45);
-	Bureaucrat		bab("bab", 145);
-	std::cout << std::endl << f <<  std::endl;
-	std::cout << std::endl << r <<  std::endl;
-	std::cout << std::endl << p <<  std::endl;
-    std::cout << std::endl << bob << std::endl;
-    std::cout << std::endl << bib << std::endl;
-    std::cout << std::endl << bab << std::endl;
-	std::cout << "/////// " << bob << " ////////" << std::endl;
-	try {
-        f.beSigned(bob);
-        f.execute(bob);
-    }
-    catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
-    }
+/*
+ ** EXCEPTIONS TESTS
+ */
+
+    ShrubberyCreationForm	s("shrubbery");
+    RobotomyRequestForm	r("robot");
+    PresidentialPardonForm	p("pardon");
+
+    std::cout << "<<<<< EXCEPTIONS TESTS >>>>>" << std::endl;
+
+    std::cout << std::endl << "<<<<< SHRUBBERY FORM >>>>>>" << std::endl;
+
     try {
-        r.beSigned(bob);
-        r.execute(bob);
-        r.execute(bob);
+
+        //Bureaucrat archi("archi", 2);
+        Bureaucrat archi("archi", 50);
+        //Bureaucrat archi("archi", 149);
+
+        std::cout << s;
+        archi.signForm(s);
+        archi.executeForm(s);
+
     } catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
-    }
-    try {
-        p.beSigned(bob);
-        p.execute(bob);
-    } catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
-    }
-	std::cout << "//////// " <<  bib << " /////////" <<  std::endl;
-    try {
-        f.beSigned(bib);
-        f.execute(bib);
-    }
-    catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
-    }
-    try {
-        r.beSigned(bib);
-        r.execute(bib);
-        r.execute(bib);
-    } catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
-    }
-    try {
-        p.beSigned(bib);
-        p.execute(bib);
-    } catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
+
+        std::cout << "Error: " << e.what() << std::endl;
     }
 
-	std::cout << " ////////" << bab << " /////////" << std::endl;
+    std::cout << std::endl << "<<<<< ROBOTOMY FORM >>>>>>" << std::endl;
+
     try {
-        f.beSigned(bab);
-        f.execute(bab);
-    }
-    catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
-    }
-    try {
-        r.beSigned(bab);
-        r.execute(bab);
-        r.execute(bab);
+
+        //Bureaucrat archi("archi", 2);
+        Bureaucrat archi("archi", 50);
+        //Bureaucrat archi("archi", 149);
+
+        std::cout << r;
+        archi.signForm(r);
+        archi.executeForm(r);
+        archi.executeForm(r);
+        archi.executeForm(r);
+
     } catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
+
+        std::cout << "Error: " << e.what() << std::endl;
     }
+
+    std::cout << std::endl << "<<<<< PRESIDENTIAL FORM >>>>>>" << std::endl;
+
     try {
-        p.beSigned(bab);
-        p.execute(bab);
+
+        //Bureaucrat archi("archi", 2);
+        Bureaucrat archi("archi", 50);
+        //Bureaucrat archi("archi", 149);
+
+        std::cout << p;
+        archi.signForm(p);
+        archi.executeForm(p);
+
     } catch (const std::exception &e) {
-        std::cout << "EXCEPTION : " << e.what() << std::endl;
+
+        std::cout << "Error: " << e.what() << std::endl;
     }
 
 	return (0);

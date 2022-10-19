@@ -27,9 +27,10 @@ int main(void) {
         std::cout << form;
         //Bureaucrat archi("archi", -345);
         //Bureaucrat archi("archi", 45);
-        Bureaucrat archi("archi", 73);
+        //Bureaucrat archi("archi", 73);
         //Bureaucrat archi("archi", 0);
-        //Bureaucrat archi("archi", 150);
+        Bureaucrat archi("archi", 150);
+        //Bureaucrat archi("archi", 157);
         //Bureaucrat archi("archi", 2);
         //Bureaucrat archi("archi", 2147483649);
         //Bureaucrat archi("archi", -2147483649);
@@ -44,7 +45,7 @@ int main(void) {
         std::cout << archi;
         form.beSigned(archi);
         std::cout << form;
-        archi.signedForm(form);
+        archi.signForm(form);
 
 
     } catch (const std::exception &e) {
@@ -69,7 +70,7 @@ int main(void) {
     Form formV2(form);
     std::cout << formV2;
     formV2.beSigned(archi);
-    archi.signedForm(formV2);
+    archi.signForm(formV2);
 
     return (0);
 }
