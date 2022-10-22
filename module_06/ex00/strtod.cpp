@@ -8,12 +8,13 @@ int main(void)
 	/* char *s = "a"; */
 	/* char *s = "-inff"; */
 	/* char *s = "+inff"; */
-	char *s = "nanf";
+	char *s = "-inf";
 	/* char *s = "12.5hjk"; */
 	char *end;
-	double d1, d2;
-	d1 = strtod(s, &end);
-	d2 = strtod(end, NULL);
-	std::cout << "D1 -> " << d1 << " & D2 -> " << d2 << std::endl;
+	double d1;
+	float f = 1;
+	d1 = strtod(s, NULL);
+	std::cout << "D1 -> " << d1 << std::endl;
+	std::cout << "f -> " << f << std::endl;
 	return (0);
 }

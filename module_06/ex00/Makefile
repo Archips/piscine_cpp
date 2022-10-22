@@ -3,7 +3,7 @@ NAME		:= scalar
 SRC_DIR		:= src
 SRCS		:= \
 	main.cpp \
-	Bureaucrat.cpp
+	Scalar.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 BUILD_DIR	:= .build
