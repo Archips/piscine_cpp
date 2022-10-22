@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:03:52 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/15 14:28:49 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:54:08 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int main(void) {
     Bureaucrat archi("Archi", 50);
     std::cout << archi;
     Bureaucrat archibad(archi);
-    //archibad = archi;
     std::cout << archibad;
     Bureaucrat archips;
     archips = archi;
