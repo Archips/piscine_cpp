@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <limits>
 
 class Scalar {
 
@@ -12,23 +14,27 @@ class Scalar {
         ~Scalar(void);
 
         Scalar &operator=(const Scalar &rhs);
-        bool    isFloat(char *scalar);
-        bool    isInt(char *scalar);
-        bool    isDouble(char *scalar);
-        bool    isChar(char *scalar);
-
-//        void    castToFloat(char *scalar);
-//        void    castToInt(char *scalar);
-//        void    castToDouble(char *scalar);
-//        void    castToChar(char *scalar);
 
         void    convertInput(char *s);
 
-    private:
+        private :
+
+            bool    isFloat(char *scalar);
+            bool    isInt(char *scalar);
+            bool    isDouble(char *scalar);
+            bool    isChar(char *scalar);
+
+            void    printChar(double value);
+            void    printInt(double value);
+            void    printFloat(double value);
+            void    printDouble(double value);
+
+            void    castToFloat(char *scalar);
+            void    castToInt(char *scalar);
+            void    castToDouble(char *scalar);
+            void    castToChar(char *scalar);
 
 };
-
-//std::ostream & operator<<(std::ostream & o, Scalar const & rhs);
 
 #endif
 
