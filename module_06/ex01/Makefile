@@ -2,8 +2,7 @@ NAME		:= serialize
 
 SRC_DIR		:= src
 SRCS		:= \
-	main.cpp \
-	Bureaucrat.cpp
+	main.cpp 
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 BUILD_DIR	:= .build

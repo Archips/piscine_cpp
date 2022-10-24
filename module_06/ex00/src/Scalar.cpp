@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Scalar.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 09:48:51 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/24 13:55:20 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Scalar.hpp"
 
 /*
@@ -7,6 +19,7 @@
 Scalar::Scalar(void){
 
 //    std::cout << "Scalar default constructor called" << std::endl;
+	this->_precision = 1;
 }
 
 Scalar::Scalar(const Scalar &src) {
@@ -31,7 +44,8 @@ Scalar::~Scalar(void) {
 Scalar  &Scalar::operator=(const Scalar &rhs) {
 
 //    std::cout << "Copy assignment operator called" << std::endl;
-    (void) rhs;
+    if (this != &rhs)
+		this->_precision = rhs._precision;
     return (*this);
 }
 
@@ -71,25 +85,29 @@ bool    Scalar::isFloat(char *s) {
     std::string             nb(s);
     unsigned int            i;
     unsigned int            comma;
+	int						precision;
     float                   fNb;
 
     comma = 0;
     i = 0;
+	precision = 0;
     if (!nb.compare("-inff") || !nb.compare("+inff") | !nb.compare("nanf"))
         return (true);
-    if (nb[i] == '-' || nb[i] == '+') {
-        std::cout << "operator in isFloat" << std::endl;
+    if (nb[i] == '-' || nb[i] == '+')
         i++;
-    }
     for (; i < nb.size(); i ++) {
-        if (nb[i] == '.')
-            comma++;
+        if (nb[i] == '.') {
+			comma++;
+			if (comma == 1)
+				precision = i;
+		}
         else if (nb[i] != 'f' && !isdigit(nb[i]))
             return (false);
     }
-    fNb = std::stof(s, NULL);
-    std::cout << "fNb -> " << fNb << std::endl;
-    if (nb.back() == 'f' && comma <= 1 && fNb >= std::numeric_limits<float>::lowest() && fNb <= std::numeric_limits<float>::max())
+    fNb = std::strtof(s, NULL);
+	if (precision)
+		this->_precision = nb.size() - precision - 1;
+    if (nb[nb.size() - 1] == 'f' && comma <= 1 && fNb >= -FLT_MAX && fNb <= std::numeric_limits<float>::max())
         return (true);
     return (false);
 }
@@ -99,22 +117,29 @@ bool    Scalar::isDouble(char *s) {
     std::string             nb(s);
     unsigned int            i;
     unsigned int            comma;
+	int						precision;
     double                  dNb;
 
     comma = 0;
     i = 0;
+	precision = 0;
     if (!nb.compare("-inf") || !nb.compare("+inf") | !nb.compare("nan"))
         return (true);
     if (nb[i] == '-' || nb[i] == '+')
         i++;
     for (; i < nb.size(); i ++) {
-        if (nb[i] == '.')
+        if (nb[i] == '.') { 
             comma++;
+			if (comma == 1)
+				precision = i;
+		}
         if (nb[i] != '.' && !isdigit(nb[i]))
             return (false);
     }
-    dNb = std::stod(s, NULL);
-    if (comma == 1 && dNb >= std::numeric_limits<double>::lowest() && dNb <= std::numeric_limits<double>::max())
+    dNb = std::strtod(s, NULL);
+	if (precision)
+		this->_precision = nb.size() - precision - 1;
+    if (nb[nb.size() -1] != '.' && comma == 1 && dNb >= -DBL_MAX && dNb <= std::numeric_limits<double>::max())
         return (true);
     return (false);
 }
@@ -124,7 +149,7 @@ void    Scalar::printChar(double value) {
     char c;
 
     c = static_cast<char>(value);
-    if (!isprint(c))
+	if (value < 32 || value > 126)
         std::cout << "char: non displayable" << std::endl;
     else
         std::cout << "char: '" << c << "'" << std::endl;
@@ -156,8 +181,9 @@ void    Scalar::castToChar(char *s) {
     double value;
 
     value = static_cast<double>(s[0]);
-    std::cout << "char: '" << s[0] << "'" << std::endl;
-    this->printInt(value);
+    std::cout << std::fixed << std::setprecision(this->_precision);
+    this->printChar(value);
+	this->printInt(value);
     this->printFloat(value);
     this->printDouble(value);
 }
@@ -169,8 +195,9 @@ void    Scalar::castToInt(char *s) {
 
     nb = std::atol(s);
     value = static_cast<double>(nb);
+    std::cout << std::fixed << std::setprecision(this->_precision);
     this->printChar(value);
-    std::cout << "int: " << nb << std::endl;
+    this->printInt(value);
     this->printFloat(value);
     this->printDouble(value);
 }
@@ -181,8 +208,12 @@ void    Scalar::castToFloat(char *s) {
     double      value;
     std::string f(s);
 
-    nb = std::stod(s, NULL);
+    nb = std::strtod(s, NULL);
     value = static_cast<double>(nb);
+	if (this->_precision > 1)
+    	std::cout << std::fixed << std::setprecision(this->_precision - 1);
+	else
+    	std::cout << std::fixed << std::setprecision(this->_precision);
     if (!f.compare("-inff") || !f.compare("+inff") | !f.compare("nanf")) {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -191,7 +222,7 @@ void    Scalar::castToFloat(char *s) {
     else {
         this->printChar(value);
         this->printInt(value);
-        std::cout << "float: " << nb << "f" <<  std::endl;
+        this->printFloat(value);
     }
     this->printDouble(value);
 }
@@ -201,7 +232,8 @@ void    Scalar::castToDouble(char * s) {
     double      value;
     std::string d(s);
 
-    value = std::stof(s, NULL);
+    value = std::strtof(s, NULL);
+    std::cout << std::fixed << std::setprecision(this->_precision);
     if (!d.compare("-inf") || !d.compare("+inf") | !d.compare("nan")) {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -218,7 +250,6 @@ void    Scalar::castToDouble(char * s) {
 
 void    Scalar::convertInput(char *s) {
 
-    std::cout << std::fixed << std::setprecision(1);
     if (this->isChar(s))
         this->castToChar(s);
     else if (this->isInt(s))

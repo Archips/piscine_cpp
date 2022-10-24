@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Scalar.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 09:48:17 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/24 13:19:21 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCALAR_HPP
 # define SCALAR_HPP
 
@@ -5,6 +17,9 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
+#include <cfloat>
+#include <climits>
+#include <cstdlib>
 
 class Scalar {
 
@@ -34,6 +49,9 @@ class Scalar {
             void    castToDouble(char *scalar);
             void    castToChar(char *scalar);
 
+	private:
+
+		int _precision;
 };
 
 #endif

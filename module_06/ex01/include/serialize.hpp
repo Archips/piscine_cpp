@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   serialize.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 09:48:32 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/24 09:48:34 by athirion         ###   ########.fr       */
+/*   Created: 2022/10/24 09:12:07 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/24 09:22:29 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scalar.hpp"
+#ifndef SERIALIZE_HPP
+# define SERIALIZE_HPP
 
-int main(int ac, char **av) {
+#include <iostream>
+#include <stdint.h>
 
-    Scalar s;
+typedef struct	s_data {
 
-    if (ac == 2) {
-        s.convertInput(av[1]);
-    }
-    else
-        std::cout << "Error: Bad input" << std::endl;
-    return (0);
-}
+	int	data;
+}				Data;
+
+#endif

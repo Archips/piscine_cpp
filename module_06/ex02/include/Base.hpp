@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 09:48:32 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/24 09:48:34 by athirion         ###   ########.fr       */
+/*   Created: 2022/10/24 09:54:34 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/24 11:12:00 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scalar.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(int ac, char **av) {
+#include <iostream>
 
-    Scalar s;
+class Base {
 
-    if (ac == 2) {
-        s.convertInput(av[1]);
-    }
-    else
-        std::cout << "Error: Bad input" << std::endl;
-    return (0);
-}
+	public:
+
+		virtual ~Base(void) {}
+};
+
+#endif

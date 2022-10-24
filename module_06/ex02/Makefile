@@ -3,7 +3,6 @@ NAME		:= realtype
 SRC_DIR		:= src
 SRCS		:= \
 	main.cpp \
-	Bureaucrat.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 BUILD_DIR	:= .build

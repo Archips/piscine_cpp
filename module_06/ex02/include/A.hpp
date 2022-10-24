@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 09:48:32 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/24 09:48:34 by athirion         ###   ########.fr       */
+/*   Created: 2022/10/24 09:51:22 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/24 11:11:43 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scalar.hpp"
+#ifndef A_HPP
+# define A_HPP
 
-int main(int ac, char **av) {
+#include "Base.hpp"
 
-    Scalar s;
+class A: public Base {
 
-    if (ac == 2) {
-        s.convertInput(av[1]);
-    }
-    else
-        std::cout << "Error: Bad input" << std::endl;
-    return (0);
-}
+	public:
+
+		A(void) {}
+		~A(void) {}
+};
+
+#endif
