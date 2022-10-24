@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 09:48:17 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/24 13:19:21 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:02:34 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ class Scalar {
             void    castToDouble(char *scalar);
             void    castToChar(char *scalar);
 
-	private:
-
-		int _precision;
+			int _precision;
 };
 
 #endif

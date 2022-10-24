@@ -3,7 +3,10 @@ NAME		:= scalar
 SRC_DIR		:= src
 SRCS		:= \
 	main.cpp \
-	Scalar.cpp
+	Scalar.cpp \
+	getType.cpp \
+	printType.cpp \
+	castTo.cpp
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 BUILD_DIR	:= .build

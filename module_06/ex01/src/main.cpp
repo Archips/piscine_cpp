@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 09:14:07 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/24 09:46:56 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:15:36 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main(void) {
 	data->data = 42;
 	
 	std::cout << "data : [ " << data << " ]" << std::endl;
-	std::cout << "&data : [ " << &data << " ]" << std::endl;
 	std::cout << "data->data : [ " << data->data << " ]" << std::endl;
 	
 	ptr = serialize(data);
@@ -39,7 +38,6 @@ int main(void) {
 
 	data_ptr = deserialize(ptr);
 	std::cout << "data_ptr : [ " << data_ptr << " ]" << std::endl;
-	std::cout << "&data_ptr : [ " << &data_ptr << " ]" << std::endl;
 	std::cout << "data_ptr->data : [ " << data_ptr->data << " ]" << std::endl;
 
 	data_ptr->data ++;

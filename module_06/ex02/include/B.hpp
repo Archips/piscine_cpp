@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 09:51:22 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/24 11:12:17 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:18:30 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 #include "Base.hpp"
 
 class B: public Base {
-
-	public:
-
-		B(void) {}
-		~B(void) {}
 };
 
 #endif
