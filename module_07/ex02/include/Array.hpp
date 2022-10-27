@@ -27,10 +27,11 @@ class Array {
 		Array(Array const &src);
 		~Array(void);
 
-		Array	operator=(Array const &rhs);
-		T		operator[](unsigned int index);
+		Array<T>	&operator=(const Array<T> &rhs);
+        Array<T>    &operator=(const T &rhs);
+		T		    &operator[](unsigned int index);
 
-		T array[];
+		T *array;
 		unsigned int	size(void);
 		void			copyArray(Array &src);
 
@@ -42,7 +43,8 @@ class Array {
 
 			const char *what() const throw() {
 
-				return ("Out of bound of the array");
+                return ("Out of bound of the array");
+            };
 		};
 		
 
@@ -54,22 +56,23 @@ class Array {
  ** CONSTRUCTORS
  */
 
-template<>
+template<class T>
 Array<T>::Array(void) {
 
 	std::cout << "Array default constructor called" << std::endl;
+    this->_size = 5;
 	this->array = new T[5];
 }
 
-/* template<typename T> */
+template<class T>
 Array<T>::Array(unsigned int n) {
 
 	std::cout << "Array parameter constructor called" << std::endl;
 	this->array = new T[n];
 }
 
-/* template<typename T> */
-Array<T>::Array(Array const &src) {
+template<class T>
+Array<T>::Array(Array<T> const &src) {
 	
 	std::cout << "Array copy constructor called" << std::endl;
 	this->_size = src._size;
@@ -81,6 +84,7 @@ Array<T>::Array(Array const &src) {
  ** DESTRUCTOR
  */
 
+template<class T>
 Array<T>::~Array(void) {
 
 	std::cout << "Array destructor called" << std::endl;
@@ -91,26 +95,33 @@ Array<T>::~Array(void) {
  ** COPY ASSIGNMENT OPERATOR
  */
 
-/* template<typename T> */
-Array	&Array<T>::operator=(const Array &rhs) {
+template<class T>
+Array<T>	&Array<T>::operator=(const Array<T> &rhs) {
 
 	std::cout << "Array copy assignment operator called" << std::endl;
 	if (this != &rhs) {
 		this->_size = rhs._size;
 		this->_array = new T[rhs._size];
-		this->_array.copyArray(src.array);
+		this->_array.copyArray(rhs.array);
 	}
 	return (*this);
+}
+
+template<class T>
+Array<T>          &Array<T>::operator=(const T &rhs){
+
+    *(this->array) = rhs;
+    return (*this);
 }
 
 /*
  ** OVERLOAD OPERATOR []
  */
 
-/* template<typename T> */
-T	Array<T>::operator[](unsigned int index){
+template<class T>
+T	&Array<T>::operator[](unsigned int index){
 
-	if (index >= this->_size)
+	if (index >= this->_size || index < 0)
 		throw Array::outOfBoundException();
 	return (this->array[index]);
 }
@@ -119,13 +130,14 @@ T	Array<T>::operator[](unsigned int index){
  ** MEMBER FUNCTION
  */
 
+template<class T>
 unsigned int	Array<T>::size(void) {
 
 	return (this->_size);
 }
 
-
-void			Array<T>::copyArray(Array &src) {
+template<class T>
+void			Array<T>::copyArray(Array<T> &src) {
 
 	for (int i = 0; i < src.size(); i ++)
 		this->array[i] = src.array[i];
