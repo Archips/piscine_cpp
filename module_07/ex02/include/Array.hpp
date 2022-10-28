@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:25:47 by athirion          #+#    #+#             */
-/*   Updated: 2022/10/27 15:36:10 by athirion         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:08:23 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,16 @@ Array<T>::Array(void) {
 
 	std::cout << "Array default constructor called" << std::endl;
     this->_size = 0;
-	this->array = new T[this->_size];
 }
 
 template<class T>
 Array<T>::Array(int n) {
 
 	std::cout << "Array parameter constructor called" << std::endl;
-    if (n < 0)
+    if (n < 0) {
         throw Array::outOfBoundException();
+		return ;
+	}
 	this->_size = n;
 	this->array = new T[n];
 }
