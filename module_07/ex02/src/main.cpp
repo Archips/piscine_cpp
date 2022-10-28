@@ -14,6 +14,13 @@
 
 int main(void)
 {
+    std::cout << ">>>>>> BAD INDEX <<<<<<<" << std::endl << std::endl;
+    {
+        try {
+            Array<std::string> test(-4); }
+        catch (const std::exception &e) {
+            std::cout << "Error: " << e.what() << std::endl; }
+    }
     {
         std::string *test = new std::string[5];
 
@@ -22,6 +29,11 @@ int main(void)
 
         for (int i= 0; i < 5; i ++)
             std::cout << test[i] << std::endl;
+
+        std::string *test2(test);
+
+        for (int i= 0; i < 5; i ++)
+            std::cout << test2[i] << std::endl;
     }
 	{
 		Array<int> array(5);
@@ -39,8 +51,7 @@ int main(void)
 
 	{
 		Array<std::string> array(10);
-		/* Array<std::string> cpy; */
-		Array<std::string> cpy(array);
+		Array<std::string> cpy;
 
 		for (int i = 0; i < 10; i ++)
 		{
@@ -61,12 +72,12 @@ int main(void)
 			std::cout << "Error: " << e.what() << std::endl;
 		}
 
-		/* cpy = array; */
+		cpy = array;
 
 		cpy.display();
 		cpy.size();
 		try {
-			for (int i = 0; i < 10; i ++)
+			for (int i = 0; i < 11; i ++)
 				cpy[i] = "NOPE";
 		}
 		catch (const std::exception &e) {
@@ -75,6 +86,22 @@ int main(void)
 		cpy.display();
 		std::cout << "ARRAY :" << std::endl;
 		array.display();
+
+        Array<std::string> cpy2(cpy);
+        std::cout << "COPY 2:" << std::endl;
+        cpy2.display();
+
+        try {
+            for (int i = 0; i < 10; i ++)
+                cpy2[i] = "NOPEEEEEEEEEE";
+        }
+        catch (const std::exception &e) {
+            std::cout << "Error: " << e.what() << std::endl;}
+
+        std::cout << "COPY :" << std::endl;
+        cpy.display();
+        std::cout << "COPY 2:" << std::endl;
+        cpy2.display();
 
 	}
 

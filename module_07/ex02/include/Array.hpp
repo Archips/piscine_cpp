@@ -23,7 +23,7 @@ class Array {
 	public:
 
 		Array(void);
-		Array(unsigned int n);
+		Array(int n);
 		Array(const Array<T> &src);
 		~Array(void);
 
@@ -61,14 +61,16 @@ template<class T>
 Array<T>::Array(void) {
 
 	std::cout << "Array default constructor called" << std::endl;
-    this->_size = 5;
-	this->array = new T[5];
+    this->_size = 0;
+	this->array = new T[this->_size];
 }
 
 template<class T>
-Array<T>::Array(unsigned int n) {
+Array<T>::Array(int n) {
 
 	std::cout << "Array parameter constructor called" << std::endl;
+    if (n < 0)
+        throw Array::outOfBoundException();
 	this->_size = n;
 	this->array = new T[n];
 }
@@ -77,13 +79,9 @@ template<class T>
 Array<T>::Array(const Array<T> &src) {
 	
 	std::cout << "Array copy constructor called" << std::endl;
-	std::cout << "#1" << std::endl;
 	this->_size = src._size;
-	std::cout << "#2" << std::endl;
 	this->array = new T[src._size];
-	std::cout << "#3" << std::endl;
 	this->copyArray(this->array, src.array, src._size);
-	std::cout << "#4" << std::endl;
 }
 
 /*
@@ -147,7 +145,6 @@ void			Array<T>::copyArray(T *cpy, const T *src, unsigned int size) {
 
 	for (unsigned int i = 0; i < size; i ++) {
 		cpy[i] = src[i];
-		std::cout << "cpy[i] = [" << cpy[i] << "] & src[i] = [" << src[i] << "]" << std::endl;
 	}
 }
 
