@@ -14,6 +14,15 @@
 
 int main(void)
 {
+    {
+        std::string *test = new std::string[5];
+
+        for (int i = 0; i < 5; i ++)
+            test[i] = "HEY";
+
+        for (int i= 0; i < 5; i ++)
+            std::cout << test[i] << std::endl;
+    }
 	{
 		Array<int> array(5);
 
