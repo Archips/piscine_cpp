@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/31 09:21:14 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/31 09:39:23 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "easyfind.hpp"
 
 template <typename T>
@@ -11,19 +23,19 @@ void    display(T c){
 
 int main(void) {
 
-    std::cout << ">>>> ARRAY <<<<" << std::endl << std::endl;
-    std::array<int, 10> array = {0, 4, 8, 12, -8, -4, 42, 21, -21, 100};
-    std::cout << "---------------" << std::endl;
-    display(array);
-    std::cout << "---------------" << std::endl;
-    try {
-        std::cout << easyfind(array, 4) << std::endl;
-        std::cout << easyfind(array, 3) << std::endl;
-    }
-    catch (const std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << std::endl;
+    /* std::cout << ">>>> ARRAY <<<<" << std::endl << std::endl; */
+    /* std::array<int, 10> array = {0, 4, 8, 12, -8, -4, 42, 21, -21, 100}; */
+    /* std::cout << "---------------" << std::endl; */
+    /* display(array); */
+    /* std::cout << "---------------" << std::endl; */
+    /* try { */
+    /*     std::cout << easyfind(array, 4) << std::endl; */
+    /*     std::cout << easyfind(array, 3) << std::endl; */
+    /* } */
+    /* catch (const std::exception &e) { */
+    /*     std::cout << e.what() << std::endl; */
+    /* } */
+    /* std::cout << std::endl; */
     std::cout << ">>>> LIST <<<<" << std::endl << std::endl;
     std::list<int> list;
     for (int i = 0; i < 10; i++) {

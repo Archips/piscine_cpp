@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/31 09:21:28 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/31 10:02:31 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
@@ -5,6 +17,7 @@
 #include <exception>
 #include <iostream>
 #include <cstdlib>
+#include <climits>
 #include <algorithm>
 
 class Span {
@@ -19,10 +32,10 @@ class Span {
         Span    &operator=(const Span &rhs);
         void            addNumber(int nb);
         void            fill(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-        void            display(void) ;
+        void            display(void);
         int             shortestSpan(void);
         int             longestSpan(void);
-        unsigned int    getSize(void);
+        unsigned int    getSize(void) const;
 
     private:
 

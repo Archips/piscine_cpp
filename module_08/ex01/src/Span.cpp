@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/31 09:21:48 by athirion          #+#    #+#             */
+/*   Updated: 2022/10/31 10:02:20 by athirion         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 /*
@@ -90,7 +102,7 @@ void    Span::fill(std::vector<int>::iterator begin, std::vector<int>::iterator 
     this->_vector.insert(this->_vector.end(), begin, end);
 }
 
-unsigned int    Span::getSize(void) {
+unsigned int    Span::getSize(void) const {
     return (this->_vector.size());
 }
 
