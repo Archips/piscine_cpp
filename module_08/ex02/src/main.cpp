@@ -1,6 +1,8 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <list>
+
+
 int main()
 {
     {
@@ -25,7 +27,6 @@ int main()
             std::cout << *it << std::endl;
             ++it;
         }
-        std::stack<int> s(mstack);
     }
 
     {
@@ -50,8 +51,43 @@ int main()
             std::cout << *it << std::endl;
             ++it;
         }
-        std::list<int> s(list);
     }
 
+    {
+        std::cout << std::endl << ">>>> Additional Tests <<<<" << std::endl;
+        MutantStack<std::string> mstack;
+        mstack.push("Salut");
+        mstack.push("Ciao");
+        mstack.push("Hello");
+        mstack.push("Bonjour");
+        std::cout << "Top : ";
+        std::cout << mstack.top() << std::endl;
+        mstack.pop();
+        std::cout << "Size : ";
+        std::cout << mstack.size() << std::endl;
+        mstack.push("Bye");
+        mstack.push("Au revoir");
+        MutantStack<std::string>::reverse_iterator itr = mstack.rbegin();
+        MutantStack<std::string>::reverse_iterator iter = mstack.rend();
+        std::cout << "Size : ";
+        std::cout << mstack.size() << std::endl;
+        std::cout << "Top : ";
+        std::cout << mstack.top() << std::endl;
+        while (itr != iter)
+        {
+            std::cout << *itr << std::endl;
+            ++itr;
+        }
+        std::cout << "------" << std::endl;
+        MutantStack<std::string>::iterator it = mstack.begin();
+        MutantStack<std::string>::iterator ite = mstack.end();
+        while (it != ite)
+        {
+            std::cout << *it << std::endl;
+            ++it;
+        }
+    }
+
+    std::cout << std::endl;
     return 0;
 }
