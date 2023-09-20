@@ -1,5 +1,9 @@
 # Piscine CPP
 
+## Score
+
+-  100%
+
 ## Module 00
 
 This module is designed to assist in grasping the distinctions between C++ and C, offering an opportunity to delve into object-oriented programming
